@@ -11,3 +11,4 @@ Sistema de Administración de Torneos de Tenis de Mesa basado en llaves.  El obj
 - React Js
 
 ## Algoritmoe ITTF
+
