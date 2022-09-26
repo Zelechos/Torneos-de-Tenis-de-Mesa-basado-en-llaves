@@ -9,3 +9,5 @@ Sistema de Administración de Torneos de Tenis de Mesa basado en llaves.  El obj
 - Java
 - Spring Framework
 - React Js
+
+## Algoritmoe ITTF
