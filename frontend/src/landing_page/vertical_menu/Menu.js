@@ -5,7 +5,7 @@ function Menu() {
     <div className="App">
       <header className="App-header">
         <p>
-          Menu
+          Menu Siu
         </p>
         <a
           className="App-link"
