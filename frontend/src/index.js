@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import NavBar from './landing_page/nav_bar/NavBar';
+import Menu from './landing_page/vertical_menu/Menu';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <NavBar />
+    <Menu />
   </React.StrictMode>
 );
 
