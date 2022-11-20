@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&family=Nunito:wght@400;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  /* font: 1em/1.618 Inter, sans-serif;
+  background: url(./img/tenis_de_mesa.jpg) center / cover no-repeat fixed; */
+
+  background: url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) center /
+    cover no-repeat fixed;
+}
+
+header {
+  background-color: #17163f;
+  color: #fff;
+  height: 50px;
+}
