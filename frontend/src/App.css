@@ -10,6 +10,7 @@ html,
 body {
   font: 1em/1.618 Inter, sans-serif;
   background: url(./img/background-landing.jpg) center / cover no-repeat fixed;
+  /* background: url(./img/tenis_de_mesa.jpg) center / cover no-repeat fixed; */
 
   /* background: url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) center /
     cover no-repeat fixed; */
@@ -20,7 +21,6 @@ header {
   color: #fff;
   height: 80px;
   display: flex;
-  text-align: center;
 }
 
 header > h1 {
@@ -30,6 +30,20 @@ header > h1 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   color: rgba(255, 255, 255, 0.589);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.container-icon-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
 }
 
 .tenis-logo {
