@@ -8,15 +8,31 @@
 
 html,
 body {
-  /* font: 1em/1.618 Inter, sans-serif;
-  background: url(./img/tenis_de_mesa.jpg) center / cover no-repeat fixed; */
+  font: 1em/1.618 Inter, sans-serif;
+  background: url(./img/background-landing.jpg) center / cover no-repeat fixed;
 
-  background: url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) center /
-    cover no-repeat fixed;
+  /* background: url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) center /
+    cover no-repeat fixed; */
 }
 
 header {
-  background-color: #17163f;
+  background-color: #062951;
   color: #fff;
-  height: 50px;
+  height: 80px;
+  display: flex;
+  text-align: center;
+}
+
+header > h1 {
+  display: flex;
+  align-items: center;
+  text-shadow: 0 4px 3px rgb(65, 120, 221);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: rgba(255, 255, 255, 0.589);
+}
+
+.tenis-logo {
+  height: 80px;
+  margin-left: 50px;
 }
