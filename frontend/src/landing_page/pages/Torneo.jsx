@@ -1,7 +1,11 @@
+import FormTournament from "./forms/FormTournament";
+import './styles/Tournament.css'
+
 const Torneo = () => {
   return (
-    <div className="title">
-      <h1>TORNEOS</h1>
+    <div className="container-tournament">
+      <nav>navegacion</nav>
+      <FormTournament />
     </div>
   );
 };

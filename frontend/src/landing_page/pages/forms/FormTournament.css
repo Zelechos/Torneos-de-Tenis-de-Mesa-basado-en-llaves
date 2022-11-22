@@ -1,0 +1,12 @@
+
+.container-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
+}
+
+.form-tournament{
+    width: 100%;
+    background-color: aliceblue;
+}

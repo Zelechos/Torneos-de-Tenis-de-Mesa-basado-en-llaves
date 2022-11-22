@@ -33,7 +33,7 @@ h1 {
 }
 
 .tenis-logo {
-    height: 45px;
+    height: 45px !important;
     margin: 5px;
     border-radius: 5px;
 }
