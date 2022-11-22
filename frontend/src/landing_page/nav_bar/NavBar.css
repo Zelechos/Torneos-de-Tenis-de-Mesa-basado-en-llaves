@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+header {
+    position: sticky;
+    top: 0px;
+    background-color: #062951;
+    color: #fff;
+    height: 55px;
+    display: flex;
+    z-index: 1;
+}
+
+h1,
+.search,
+.btn {
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    font-family: "Raleway", sans-serif;
+    color: rgba(255, 255, 255, 0.589);
+}
+
+.d-flex {
+    height: 35px;
+}
+
+.search {
+    position: absolute;
+    right: 0;
+    margin: 9px;
+}
+
+.tenis-logo {
+    height: 45px;
+    margin: 5px;
+    border-radius: 5px;
+}
