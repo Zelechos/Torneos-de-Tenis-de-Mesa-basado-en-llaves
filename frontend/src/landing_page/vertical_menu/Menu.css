@@ -1,0 +1,67 @@
+.navegacion-principal {
+  display: flex;
+}
+
+.rutas {
+  width: 100%;
+}
+
+.container-menu-principal {
+  width: 20%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+
+  border: px solid rgba(255, 255, 255, 0.25);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.856),
+    70%,
+    rgba(255, 255, 255, 0.25)
+  );
+  background: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.125),
+    rgba(255, 255, 255, 0.125) 44%,
+    45%,
+    rgba(255, 255, 255, 0.25)
+  );
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(15px) brightness(120%);
+}
+
+.container-menu {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.container-menu:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.icon {
+  width: 20%;
+}
+
+.text-xl {
+  text-shadow: 0 4px 5px rgba(130, 130, 207, 0.863);
+}
+
+.text {
+  color: #17163f;
+  font-weight: 450;
+  text-decoration: none;
+  width: 80%;
+  text-shadow: 0 4px 5px rgb(23, 187, 173);
+}
