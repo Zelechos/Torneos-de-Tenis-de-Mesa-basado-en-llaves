@@ -1,17 +1,12 @@
-import "./FormTournament.css";
-
-function FormTournament() {
+import "../formsTournament/FormTournament.css";
+function FormPartido() {
   return (
     <div class="main">
       <div class="login">
-        <h1 class="heading">Registrar Nuevo Torneo</h1>
+        <h1 class="heading">Registrar Nuevo Partido</h1>
         <div class="input">
-          <label for="username">Nombre de tú Torneo: </label>
+          <label for="username">Nombre del Partido: </label>
           <input type="text" id="name" autocomplete="false" />
-        </div>
-        <div class="input">
-          <label for="username">Descripción Corta: </label>
-          <input type="text" id="description" autocomplete="false" />
         </div>
         <div class="input fecha">
           <div className="labe-fecha">
@@ -37,4 +32,4 @@ function FormTournament() {
   );
 }
 
-export default FormTournament;
+export default FormPartido;

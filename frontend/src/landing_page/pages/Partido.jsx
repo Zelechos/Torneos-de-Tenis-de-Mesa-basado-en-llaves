@@ -10,10 +10,10 @@ const Partido = () => {
             style={{ display: "flex", justifyContent: "space-around" }}
           >
             <Link to="./" className="link">
-              Lista Torneos
+              Mis Partidos
             </Link>
-            <Link to="./registrar-torneos" className="link">
-              Registrar Torneo
+            <Link to="./registrar-partido" className="link">
+              Registrar Nuevo Partido
             </Link>
           </nav>
         </div>
