@@ -16,6 +16,6 @@ public class Partido {
     private String lugar;
     private LocalDate fechaConclusion;
     private LocalDate fechaInicio;
-
+    public Partido(){};
 }
 

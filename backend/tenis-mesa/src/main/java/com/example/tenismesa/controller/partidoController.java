@@ -19,5 +19,6 @@ public class partidoController {
     @PostMapping("add")
     public void agregar(@RequestBody Partido p){
         repoPartido.save(p);
+
     }
 }
