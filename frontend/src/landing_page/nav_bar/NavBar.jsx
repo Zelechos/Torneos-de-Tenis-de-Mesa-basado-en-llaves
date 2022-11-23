@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 
 const NavBar = () => {
   return (
-    <>
       <header>
         <div>
           <img className="tenis-logo" src={Logo} alt="Logo de FreecodeCamp" />
@@ -23,7 +22,6 @@ const NavBar = () => {
           </Form>
         </div>
       </header>
-    </>
   );
 }
 

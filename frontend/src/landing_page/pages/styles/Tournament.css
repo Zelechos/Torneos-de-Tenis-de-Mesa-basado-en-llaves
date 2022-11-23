@@ -1,0 +1,44 @@
+.container-tournament,
+.container-nav-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-tournament {
+    height: 100%;
+}
+
+
+.container-nav-header {
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 25px;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.title-tournament {
+    color: #062951;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.cotainer-nav,
+.sub-ruta {
+    width: 50%;
+}
+
+.link {
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.sub-ruta {
+    background-color: #0000005d;
+}
