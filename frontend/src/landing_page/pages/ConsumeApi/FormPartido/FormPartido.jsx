@@ -23,10 +23,10 @@ function FormPartido() {
           <input type="text" id="location" autocomplete="false" />
         </div>
         <div class="input">
-          <label for="username">Costo de la Inscripcion (Bs): </label>
-          <input type="number" id="costo" autocomplete="false" />
+          <label for="username">Arbitro: </label>
+          <input type="text" id="location" autocomplete="false" />
         </div>
-        <button class="login-btn">Registrar Torneo</button>
+        <button class="login-btn">Registrar Partido</button>
       </div>
     </div>
   );
