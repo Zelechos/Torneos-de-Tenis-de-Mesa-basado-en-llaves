@@ -77,7 +77,12 @@ const Menu = () => {
             <Route path="registrar-torneos" element={<FormTournament />} />
           </Route>
 
-          <Route path="/partido" element={<Partido />} />
+          <Route path="/partido" element={<Partido />}>
+            **
+            <Route index element={<ListTournament />} />
+            **
+            <Route path="registrar-torneos" element={<FormTournament />} />
+          </Route>
           <Route path="/roles" element={<Rol />} />
           <Route path="/reportes" element={<Reportes />} />
         </Routes>
