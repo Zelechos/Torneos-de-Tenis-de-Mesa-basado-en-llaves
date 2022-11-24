@@ -18,6 +18,5 @@ Sistema de Administración de Torneos de Tenis de Mesa basado en llaves.  El obj
 - SCRUM
 
  ## Recursos
-- Pila de Productos ->[Pila de Productos](https://docs.google.com/document/d/1KACVXdNbFSpxU2epnRuQaUATM3c4KwkRDjuW6A-Xw6s/edit?usp=sharing "Pila de Productos")
-
-- Modelo Entidad Relacion [MER](https://app.sqldbm.com/MySQL/Edit/p241233#)
+- Pila de Productos 👉 [Pila de Productos](https://docs.google.com/document/d/1KACVXdNbFSpxU2epnRuQaUATM3c4KwkRDjuW6A-Xw6s/edit?usp=sharing "Pila de Productos")
+- Modelo Entidad Relacion 👉 [Torneos de Tenis de Mesa - MER](https://app.sqldbm.com/MySQL/Edit/p241233#)
