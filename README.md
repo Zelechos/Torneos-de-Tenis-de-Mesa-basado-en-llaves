@@ -18,3 +18,4 @@ Sistema de Administración de Torneos de Tenis de Mesa basado en llaves.  El obj
 - SCRUM
 
 Pila de Productos ->[Pila de Productos](https://docs.google.com/document/d/1KACVXdNbFSpxU2epnRuQaUATM3c4KwkRDjuW6A-Xw6s/edit?usp=sharing "Pila de Productos")
+1.- Planilla del Primer Sprint .- [Primer Sprint - Planilla](https://docs.google.com/spreadsheets/d/116xtUK9m5Z80MgWIC0ugYN4amdtGM_dB/edit?usp=sharing&ouid=111774421889762227898&rtpof=true&sd=true)
