@@ -4,20 +4,18 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
 
-@Entity(name="matricula")
+@Entity(name="partido")
 @Data
 @AllArgsConstructor
-public class prueba {
+public class Partido {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private Double monto;
-    private Double nroMaximoCuotas;
-    private Double nrocuotasEscogido;
-    private LocalDate fecha;
-
+    private String nombre;
+    private String lugar;
+    private LocalDate fechaConclusion;
+    private LocalDate fechaInicio;
+    public Partido(){};
 }
 
