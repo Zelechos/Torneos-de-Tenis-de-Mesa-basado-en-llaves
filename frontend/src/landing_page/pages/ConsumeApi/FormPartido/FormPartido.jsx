@@ -1,4 +1,4 @@
-import "../formsTournament/FormTournament.css";
+import "../stylesForm.css";
 function FormPartido() {
   return (
     <div class="main">
