@@ -1,14 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-.login {
+.data-torneo {
     position: relative;
-    background: #0a9ed8c7;
+    background-color: #062951;
     padding: 35px 40px;
-    border-radius: 4px;
-    z-index: 0;
     overflow: hidden;
-    box-shadow: 0px 12px 31px #ffffff52, 0px 36px 31px #000000a1;
     animation: login 0.88s ease;
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px #062951;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 @keyframes login {
@@ -23,38 +25,26 @@
     }
 }
 
-.login:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: url(https://images.unsplash.com/photo-1506452305024-9d3f02d1c9b5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80);
-    width: 100%;
-    z-index: -1;
-    background-size: 182vh;
-    background-position: 28%, 83%;
-    filter: blur(24px);
-    background-repeat: no-repeat;
-    opacity: 0.8;
-}
-
 .heading {
-    font-size: 24px;
-    font-weight: 400;
+    font-size: 25px;
+    font-weight: 500;
     text-align: center;
     margin-bottom: 18px;
     color: white;
 }
 
-.input {
+.input,
+.input label {
     display: block;
+
+}
+
+.input {
     margin-bottom: 13px;
     margin-top: 11px;
 }
 
 .input label {
-    display: block;
     margin-bottom: 3px;
     font-size: 13px;
     color: white;
@@ -64,13 +54,13 @@
 .input input {
     width: 100%;
     padding: 10px;
-    outline: none;
     border: none;
     font-size: 15px;
     border-radius: 4px;
     background: #0000002b;
     color: white;
     transition: all 0.2s ease;
+    box-shadow: 0px 0px 1px #fcfcfcfd;
 }
 
 .fecha {
@@ -79,20 +69,20 @@
 }
 
 .input input:hover {
-    background: #3d434c;
+    background: #2a5ca879;
 }
 
 .input input:focus {
-    box-shadow: 0px 2px 2px #0000002b, 0px 5px 10px #00000036;
-    background: #434343;
+    box-shadow: 0px 2px 2px #ffffff, 0px 5px 10px #00000036;
+    background: #0a406d;
 }
 
-.login-btn {
+.btn-register {
     margin-top: 10px;
     margin-bottom: 15px;
     padding: 8px 15px;
     font-size: 14px;
-    background: #016fff;
+    background: #082dfff6;
     border: 2px solid #38363654;
     color: #e1e1e1;
     border-radius: 4px;
@@ -101,12 +91,7 @@
     cursor: pointer;
 }
 
-.login-btn:hover {
-    background: #082dfff6;
+.btn-register:hover {
+    background: #016fff;
     transition: all 0.1s ease;
-}
-
-.login-btn:focus {
-    box-shadow: 0px 0px 0px 2px #a7a7a7b5;
-    background: #00000061;
 }

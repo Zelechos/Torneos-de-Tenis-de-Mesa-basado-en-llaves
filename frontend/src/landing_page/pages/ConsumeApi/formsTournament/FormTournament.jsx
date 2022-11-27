@@ -2,36 +2,32 @@ import "./FormTournament.css";
 
 function FormTournament() {
   return (
-    <div class="main">
-      <div class="login">
-        <h1 class="heading">Registrar Nuevo Torneo</h1>
-        <div class="input">
-          <label for="username">Nombre de tú Torneo: </label>
+    <div className="main">
+      <div className="data-torneo">
+        <h1 className="heading">Registrar Nuevo Torneo</h1>
+        <div className="input">
+          <label for="name">Nombre de tú Torneo: </label>
           <input type="text" id="name" autocomplete="false" />
         </div>
-        <div class="input">
-          <label for="username">Descripción Corta: </label>
+        <div className="input">
+          <label for="description">Descripción Corta: </label>
           <input type="text" id="description" autocomplete="false" />
         </div>
-        <div class="input fecha">
-          <div className="labe-fecha">
-            <label for="password">Fecha Inicio:</label>
-            <input type="date" id="date-inicio" autocomplete="false" />
+        <div className="input fecha">
+          <div className="label-fecha">
+            <label for="date-start">Fecha Inicio:</label>
+            <input type="date" id="date-start" autocomplete="false" />
           </div>
-          <div className="labe-fecha">
-            <label for="password">Fecha Coclusion:</label>
-            <input type="date" id="date-coclusion" autocomplete="false" />
+          <div className="label-fecha">
+            <label for="date-end">Fecha Conclusión</label>
+            <input type="date" id="date-end" autocomplete="false" />
           </div>
         </div>
-        <div class="input">
-          <label for="username">Lugar: </label>
+        <div className="input">
+          <label for="location">Lugar: </label>
           <input type="text" id="location" autocomplete="false" />
         </div>
-        <div class="input">
-          <label for="username">Costo de la Inscripcion (Bs): </label>
-          <input type="number" id="costo" autocomplete="false" />
-        </div>
-        <button class="login-btn">Registrar Torneo</button>
+        <button className="btn-register">Registrar Torneo</button>
       </div>
     </div>
   );
