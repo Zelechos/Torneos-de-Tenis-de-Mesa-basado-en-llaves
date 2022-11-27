@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.data-torneo,
+.data-arbitro {
+  position: relative;
+  background-color: #062951;
+  padding: 35px 40px;
+  overflow: hidden;
+  animation: login 0.88s ease;
+  border-radius: 2px;
+  box-shadow: 2px 2px 5px #062951;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes login {
+  0% {
+    transform: translateY(-10%) scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.heading {
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 18px;
+  color: white;
+}
+
+.input,
+.input label {
+  display: block;
+
+}
+
+.input {
+  margin-bottom: 13px;
+  margin-top: 11px;
+}
+
+.input label {
+  margin-bottom: 3px;
+  font-size: 13px;
+  color: white;
+  cursor: pointer;
+}
+
+.input input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  font-size: 15px;
+  border-radius: 4px;
+  background: #0000002b;
+  color: white;
+  transition: all 0.2s ease;
+  box-shadow: 0px 0px 1px #fcfcfcfd;
+}
+
+.fecha {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input input:hover {
+  background: #2a5ca879;
+}
+
+.input input:focus {
+  box-shadow: 0px 2px 2px #ffffff, 0px 5px 10px #00000036;
+  background: #0a406d;
+}
+
+.btn-register {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 8px 15px;
+  font-size: 14px;
+  background: #082dfff6;
+  border: 2px solid #38363654;
+  color: #e1e1e1;
+  border-radius: 4px;
+  width: 100%;
+  transition: all 0.2s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+  cursor: pointer;
+}
+
+.btn-register:hover {
+  background: #016fff;
+  transition: all 0.1s ease;
+}

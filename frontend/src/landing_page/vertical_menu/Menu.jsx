@@ -16,6 +16,7 @@ import ListTournament from "../pages/ConsumeApi/ListTournament/ListTournament";
 import FormTournament from "../pages/ConsumeApi/formsTournament/FormTournament";
 import FormPartido from "../pages/ConsumeApi/FormPartido/FormPartido";
 import ListPartidos from "../pages/ConsumeApi/ListPartidos/ListPartidos";
+import FormArbitro from "../pages/ConsumeApi/Roles/Arbitro/FormArbitro";
 
 const Menu = () => {
   return (
@@ -85,7 +86,11 @@ const Menu = () => {
             **
             <Route path="registrar-partido" element={<FormPartido />} />
           </Route>
-          <Route path="/roles" element={<Rol />} />
+          <Route path="/roles" element={<Rol />}>
+            **
+            <Route index element={<FormArbitro />} />
+            **
+          </Route>
           <Route path="/reportes" element={<Reportes />} />
         </Routes>
       </div>

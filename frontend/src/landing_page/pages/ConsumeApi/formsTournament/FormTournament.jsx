@@ -1,4 +1,4 @@
-import "./FormTournament.css";
+import "../stylesForm.css";
 
 function FormTournament() {
   return (
