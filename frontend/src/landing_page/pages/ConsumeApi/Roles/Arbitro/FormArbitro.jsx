@@ -1,6 +1,11 @@
+import JuezImg from "./juez.jpg";
+
 function FormArbitro() {
   return (
     <div className="main">
+      <div className="container-img">
+        <img className="juez-img" src={JuezImg} alt="" />
+      </div>
       <div className="data-arbitro">
         <h1 className="heading">Registro Arbitro</h1>
         <div className="input">

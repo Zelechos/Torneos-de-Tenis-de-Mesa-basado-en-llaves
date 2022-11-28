@@ -1,8 +1,12 @@
 import "../stylesForm.css";
+import TorneoImg from "./trofeo.jpg";
 
 function FormTournament() {
   return (
     <div className="main">
+      <div className="container-img">
+        <img className="torneo-img" src={TorneoImg} alt="" />
+      </div>
       <div className="data-torneo">
         <h1 className="heading">Registrar Nuevo Torneo</h1>
         <div className="input">
