@@ -1,5 +1,6 @@
 import Form from "react-bootstrap/Form";
 import JugadorImg from "./img-jugador.jpg";
+
 function FormJugador() {
   return (
     <div className="main">
