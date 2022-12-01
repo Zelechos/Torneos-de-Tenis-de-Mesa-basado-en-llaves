@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-
-
 .jugador-img,
 .juez-img,
 .torneo-img {
@@ -13,6 +11,7 @@
 }
 
 .container-img {
+  animation: form 0.88s ease;
   width: 40%;
   background-color: #062951;
 }
@@ -24,7 +23,7 @@
   background-color: #062951;
   padding: 35px 40px;
   overflow: hidden;
-  animation: login 0.88s ease;
+  animation: form 0.88s ease;
   border-radius: 2px;
   box-shadow: 2px 0 1px #6a9cd4a9;
   backdrop-filter: blur(5px);
@@ -34,7 +33,7 @@
   border-radius: 0 120px 120px 0;
 }
 
-@keyframes login {
+@keyframes form {
   0% {
     transform: translateY(-10%) scale(0.8);
     opacity: 0;
@@ -85,7 +84,8 @@
 }
 
 .two-option,
-.main {
+.main,
+.title-table {
   display: flex;
   justify-content: space-between;
 }
@@ -130,4 +130,30 @@
 
 .container-select {
   width: 40%;
+}
+
+.title-table {
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 5px;
+  color: #fff;
+  background: #0a043a9c;
+}
+
+.table,
+.title-table {
+  animation: table 0.88s ease;
+}
+
+@keyframes table {
+  0% {
+    transform: translateY(-10%) scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

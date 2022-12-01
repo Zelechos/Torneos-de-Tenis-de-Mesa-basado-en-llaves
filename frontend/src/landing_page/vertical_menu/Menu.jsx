@@ -19,6 +19,7 @@ import ListPartidos from "../pages/ConsumeApi/ListPartidos/ListPartidos";
 import FormArbitro from "../pages/ConsumeApi/Roles/Arbitro/FormArbitro";
 import FormJugador from "../pages/ConsumeApi/Roles/Jugador/FormJugador";
 import TablaJugador from "../pages/ConsumeApi/Roles/Jugador/TablaJugador";
+import TablaArbitro from "../pages/ConsumeApi/Roles/Arbitro/TablaArbitro";
 
 const Menu = () => {
   return (
@@ -94,6 +95,7 @@ const Menu = () => {
             **
             <Route path="registrar-jugador" element={<FormJugador />} />
             <Route path="listar-jugador" element={<TablaJugador />} />
+            <Route path="listar-arbitro" element={<TablaArbitro />} />
           </Route>
           <Route path="/reportes" element={<Reportes />} />
         </Routes>
