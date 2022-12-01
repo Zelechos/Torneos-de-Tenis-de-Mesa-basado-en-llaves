@@ -1,10 +1,10 @@
 import Table from "react-bootstrap/Table";
 
-function TablaJugador() {
+function TablaArbitro() {
   return (
     <>
-      <h1 className="title-table">Tabla Jugadores</h1>
-      <Table striped bordered hover variant="dark" className="table">
+      <h1 className="title-table">Tabla Arbitros</h1>
+      <Table striped bordered hover variant="dark">
         <thead>
           <tr>
             <th>ID</th>
@@ -58,4 +58,4 @@ function TablaJugador() {
   );
 }
 
-export default TablaJugador;
+export default TablaArbitro;
