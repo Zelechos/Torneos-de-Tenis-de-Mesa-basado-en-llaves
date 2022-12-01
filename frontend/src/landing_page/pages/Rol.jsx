@@ -5,7 +5,6 @@ const Rol = () => {
   return (
     <div className="container-arbitro">
       <div className="container-nav-header">
-        {/* <h1 className="title-tournament">Roles</h1> */}
         <div className="cotainer-nav">
           <nav
             className="nav-arbitro"
@@ -16,6 +15,9 @@ const Rol = () => {
             </Link>
             <Link to="./registrar-jugador" className="link">
               Registrar Jugador
+            </Link>
+            <Link to="./listar-jugador" className="link">
+              Listar Jugadores
             </Link>
           </nav>
         </div>
