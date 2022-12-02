@@ -1,9 +1,21 @@
+import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import JugadorImg from "./img-jugador.jpg";
 
 function FormJugador() {
+  const [player, setPlayer] = useState({
+    nombre: "",
+    apellidos: "",
+    fecha_nacimiento: "",
+    altura: 0.0,
+    peso: 0.0,
+    nacionalidad: "",
+    mano_habil: "",
+    genero: "",
+  });
+
   return (
-    <div className="main">
+    <form className="main">
       <div className="container-img">
         <img className="jugador-img" src={JugadorImg} alt="" />
       </div>
@@ -72,7 +84,7 @@ function FormJugador() {
         </div>
         <button className="btn-register">Registrar Jugador</button>
       </div>
-    </div>
+    </form>
   );
 }
 

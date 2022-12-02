@@ -1,6 +1,18 @@
 import Table from "react-bootstrap/Table";
+import { useState, useEffect } from "react";
 
 function TablaJugador() {
+  const [players, setPlayers] = useState([]);
+
+  useEffect(() => {
+    const getPlayers = () => {
+      fetch("http://localhost:9090/api/jugador/")
+        .then((respuesta) => respuesta.json())
+        .then((respuesta) => setPlayers(respuesta));
+    };
+    getPlayers();
+  }, []);
+
   return (
     <>
       <h1 className="title-table">Tabla Jugadores</h1>
@@ -19,39 +31,19 @@ function TablaJugador() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>Eliminar</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>Eiminar</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>Eliminar</td>
-          </tr>
+          {players.map((player) => (
+            <tr key={player.id}>
+              <td>{player.id}</td>
+              <td>{player.nombres}</td>
+              <td>{player.apellidos}</td>
+              <td>{player.altura}</td>
+              <td>{player.peso}</td>
+              <td>{player.nacionalidad}</td>
+              <td>{player.mano_habil}</td>
+              <td>{player.genero}</td>
+              <td>Eliminar</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </>
