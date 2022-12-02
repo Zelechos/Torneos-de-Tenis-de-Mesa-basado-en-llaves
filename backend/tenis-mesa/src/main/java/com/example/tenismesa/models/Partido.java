@@ -14,8 +14,7 @@ public class Partido {
     private Long id;
     private String nombre;
     private String lugar;
-    private LocalDate fechaConclusion;
-    private LocalDate fechaInicio;
+    private LocalDate fecha;
     public Partido(){};
 }
 
