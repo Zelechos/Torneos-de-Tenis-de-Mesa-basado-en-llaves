@@ -22,6 +22,7 @@ function TablaJugador() {
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellidos</th>
+            <th>Ranking</th>
             <th>Altura</th>
             <th>Peso</th>
             <th>Nacionalidad</th>
@@ -36,6 +37,7 @@ function TablaJugador() {
               <td>{player.id}</td>
               <td>{player.nombre}</td>
               <td>{player.apellidos}</td>
+              <td>{player.ranking}</td>
               <td>{player.altura}</td>
               <td>{player.peso}</td>
               <td>{player.nacionalidad}</td>
