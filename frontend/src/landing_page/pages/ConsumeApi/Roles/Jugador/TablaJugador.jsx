@@ -6,13 +6,13 @@ function TablaJugador() {
 
   useEffect(() => {
     const getPlayers = () => {
-      fetch("http://localhost:9090/api/jugador/")
+      fetch("http://localhost:9090/api/jugador/mostrar")
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setPlayers(respuesta));
     };
     getPlayers();
   }, []);
-
+  // setPlayers(respuesta);
   return (
     <>
       <h1 className="title-table">Tabla Jugadores</h1>
@@ -34,13 +34,13 @@ function TablaJugador() {
           {players.map((player) => (
             <tr key={player.id}>
               <td>{player.id}</td>
-              <td>{player.nombres}</td>
+              <td>{player.nombre}</td>
               <td>{player.apellidos}</td>
               <td>{player.altura}</td>
               <td>{player.peso}</td>
               <td>{player.nacionalidad}</td>
               <td>{player.mano_habil}</td>
-              <td>{player.genero}</td>
+              <td>{player.sexo}</td>
               <td>Eliminar</td>
             </tr>
           ))}
