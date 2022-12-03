@@ -14,6 +14,13 @@ function FormJugador() {
     nombre: "",
     ranking: 0,
   });
+
+  const handleChange = (e) => {
+    setPlayer({
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <form className="main">
       <div className="container-img">
@@ -23,37 +30,72 @@ function FormJugador() {
         <h1 className="heading">Registro Jugador</h1>
         <div className="input">
           <label for="name">Nombres: </label>
-          <input type="text" id="name" autocomplete="false" />
+          <input
+            onChange={handleChange}
+            type="text"
+            name="name"
+            autocomplete="false"
+          />
         </div>
         <div className="input">
           <label for="lastname">Apellidos: </label>
-          <input type="text" id="lastname" autocomplete="false" />
+          <input
+            onChange={handleChange}
+            type="text"
+            name="lastname"
+            autocomplete="false"
+          />
         </div>
 
         <div className="input">
           <label for="nationality">Nacionalidad: </label>
-          <input type="text" id="nationality" autocomplete="false" />
+          <input
+            onChange={handleChange}
+            type="text"
+            name="nationality"
+            autocomplete="false"
+          />
         </div>
 
         <div className="input two-option">
           <div className="label-fecha">
             <label for="date-birth">Fecha Nacimiento:</label>
-            <input type="date" id="date-birth" autocomplete="false" />
+            <input
+              onChange={handleChange}
+              type="date"
+              name="date-birth"
+              autocomplete="false"
+            />
           </div>
           <div>
             <label for="ranking">Ranking: </label>
-            <input type="number" id="ranking" autocomplete="false" />
+            <input
+              onChange={handleChange}
+              type="number"
+              name="ranking"
+              autocomplete="false"
+            />
           </div>
         </div>
 
         <div className="input two-option">
           <div>
             <label for="height">Altura (mts): </label>
-            <input type="number" id="height" autocomplete="false" />
+            <input
+              onChange={handleChange}
+              type="number"
+              name="height"
+              autocomplete="false"
+            />
           </div>
           <div>
             <label for="weight">Peso (Kg): </label>
-            <input type="number" id="weight" autocomplete="false" />
+            <input
+              onChange={handleChange}
+              type="number"
+              name="weight"
+              autocomplete="false"
+            />
           </div>
         </div>
 
@@ -66,12 +108,12 @@ function FormJugador() {
               <option value="A">Ambos</option>
             </Form.Select>
           </div>
+
           <div className="container-select">
             <label for="genro">Genero: </label>
             <Form.Select aria-label="Default select example" className="select">
               <option value="M">Masculino</option>
               <option value="F">Femenino</option>
-              <option value="O">Otro</option>
             </Form.Select>
           </div>
         </div>
