@@ -17,9 +17,11 @@ public class Torneo {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private LocalDate inicio;
-    private LocalDate conclusion;
-    private String descripcioncorta;
+    private LocalDate fecha_final;
+    private LocalDate fecha_inicio;
+    private String descripcion;
+    private String sede;
+
     private String lugar;
     private Double costo;
 }
