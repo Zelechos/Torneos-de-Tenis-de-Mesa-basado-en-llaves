@@ -1,4 +1,5 @@
 import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 
 function TablaJugador() {
@@ -23,8 +24,8 @@ function TablaJugador() {
             <th>Nombre</th>
             <th>Apellidos</th>
             <th>Ranking</th>
-            <th>Altura</th>
-            <th>Peso</th>
+            <th>Altura(cm)</th>
+            <th>Peso(Kg)</th>
             <th>Nacionalidad</th>
             <th>Mano Habil</th>
             <th>Sexo</th>
@@ -43,7 +44,9 @@ function TablaJugador() {
               <td>{player.nacionalidad}</td>
               <td>{player.mano_habil}</td>
               <td>{player.sexo}</td>
-              <td>Eliminar</td>
+              <td>
+                <Button variant="danger">Eliminar</Button>{" "}
+              </td>
             </tr>
           ))}
         </tbody>

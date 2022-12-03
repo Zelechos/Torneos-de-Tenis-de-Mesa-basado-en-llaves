@@ -22,7 +22,8 @@ function FormJugador() {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     // validar datos
     if (
       player.nombre === "" ||
@@ -30,8 +31,8 @@ function FormJugador() {
       player.nacionalidad === "" ||
       player.sexo === "" ||
       player.mano_habil === "" ||
-      parseInt(player.peso) <= 0 ||
-      parseFloat(player.altura) <= 0 ||
+      parseFloat(player.peso) <= 0 ||
+      parseInt(player.altura) <= 0 ||
       parseInt(player.ranking) < 0
     ) {
       alert("Todos los campos deben ser llenados");
@@ -53,7 +54,7 @@ function FormJugador() {
         fecha_nacimiento: "",
         mano_habil: "",
         nacionalidad: "",
-        peso: 0,
+        peso: 0.0,
         sexo: "",
         nombre: "",
         ranking: 0,
@@ -75,6 +76,7 @@ function FormJugador() {
             type="text"
             name="nombre"
             autocomplete="false"
+            value={player.nombre}
           />
         </div>
         <div className="input">
@@ -84,6 +86,7 @@ function FormJugador() {
             type="text"
             name="apellidos"
             autocomplete="false"
+            value={player.apellidos}
           />
         </div>
 
@@ -94,6 +97,7 @@ function FormJugador() {
             type="text"
             name="nacionalidad"
             autocomplete="false"
+            value={player.nacionalidad}
           />
         </div>
 
@@ -105,6 +109,7 @@ function FormJugador() {
               type="date"
               name="fecha_nacimiento"
               autocomplete="false"
+              value={player.fecha_nacimiento}
             />
           </div>
           <div>
@@ -114,18 +119,20 @@ function FormJugador() {
               type="number"
               name="ranking"
               autocomplete="false"
+              value={player.ranking}
             />
           </div>
         </div>
 
         <div className="input two-option">
           <div>
-            <label for="altura">Altura (mts): </label>
+            <label for="altura">Altura (cm): </label>
             <input
               onChange={handleChange}
               type="number"
               name="altura"
               autocomplete="false"
+              value={player.altura}
             />
           </div>
           <div>
@@ -135,6 +142,7 @@ function FormJugador() {
               type="number"
               name="peso"
               autocomplete="false"
+              value={player.peso}
             />
           </div>
         </div>
@@ -147,6 +155,7 @@ function FormJugador() {
               className="select"
               onChange={handleChange}
               name="mano_habil"
+              value={player.mano_habil}
             >
               <option value="">Ver opciones</option>
               <option value="D">Diestro</option>
@@ -162,6 +171,7 @@ function FormJugador() {
               className="select"
               onChange={handleChange}
               name="sexo"
+              value={player.sexo}
             >
               <option value="">Ver opciones</option>
               <option value="M">Masculino</option>
