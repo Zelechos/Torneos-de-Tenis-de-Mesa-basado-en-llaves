@@ -14,4 +14,5 @@ public class Equipo {
     private Long id;
     private Integer participantes_max;
     private Integer participantes_min;
+    public Equipo(){};
 }

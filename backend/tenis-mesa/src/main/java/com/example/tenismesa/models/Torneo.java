@@ -24,4 +24,5 @@ public class Torneo {
 
     private String lugar;
     private Double costo;
+    public Torneo(){};
 }

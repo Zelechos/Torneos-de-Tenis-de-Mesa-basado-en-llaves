@@ -23,12 +23,14 @@ public class jugadorController {
     public void agregar(@RequestBody Jugador jugador){
         Participante p = new Participante();
         p.setNombre(jugador.getNombre());
+        p.setRanking(jugador.getRanking());
         Participante pR = repoParticipante.save(p);
         jugador.setId(pR.getId());
         repoJugador.save(jugador);
     }
     @GetMapping("mostrar")
     public ResponseEntity<List<Jugador>> mostrarJugadores(){
-        return new ResponseEntity<>(repoJugador.findAll(), HttpStatus.OK);
+
+        return new ResponseEntity<>(repoJugador.jugadores(), HttpStatus.OK);
     }
 }

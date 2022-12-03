@@ -5,7 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Entity(name="historialPartido")
+@Entity(name="historialpartido")
 @Data
 @AllArgsConstructor
 
