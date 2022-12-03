@@ -3,6 +3,17 @@ import Form from "react-bootstrap/Form";
 import JugadorImg from "./img-jugador.jpg";
 
 function FormJugador() {
+  const [player, setPlayer] = useState({
+    altura: 0,
+    apellidos: "",
+    fecha_nacimiento: "",
+    mano_habil: "",
+    nacionalidad: "",
+    peso: 0,
+    sexo: "",
+    nombre: "",
+    ranking: 0,
+  });
   return (
     <form className="main">
       <div className="container-img">
@@ -18,21 +29,27 @@ function FormJugador() {
           <label for="lastname">Apellidos: </label>
           <input type="text" id="lastname" autocomplete="false" />
         </div>
+
+        <div className="input">
+          <label for="nationality">Nacionalidad: </label>
+          <input type="text" id="nationality" autocomplete="false" />
+        </div>
+
         <div className="input two-option">
           <div className="label-fecha">
             <label for="date-birth">Fecha Nacimiento:</label>
             <input type="date" id="date-birth" autocomplete="false" />
           </div>
           <div>
-            <label for="height">Altura (cm): </label>
-            <input type="number" id="height" autocomplete="false" />
+            <label for="ranking">Ranking: </label>
+            <input type="number" id="ranking" autocomplete="false" />
           </div>
         </div>
 
         <div className="input two-option">
           <div>
-            <label for="nationality">Nacionalidad: </label>
-            <input type="text" id="nationality" autocomplete="false" />
+            <label for="height">Altura (mts): </label>
+            <input type="number" id="height" autocomplete="false" />
           </div>
           <div>
             <label for="weight">Peso (Kg): </label>
@@ -57,19 +74,6 @@ function FormJugador() {
               <option value="O">Otro</option>
             </Form.Select>
           </div>
-        </div>
-
-        <div className="input">
-          <label for="email">Email: </label>
-          <input type="email" id="email" autocomplete="false" />
-        </div>
-        <div className="input">
-          <label for="phone">Telefono: </label>
-          <input type="number" id="phone" autocomplete="false" />
-        </div>
-        <div className="input">
-          <label for="direcction">Dirección: </label>
-          <input type="text" id="direcction" Direccion="false" />
         </div>
         <button className="btn-register">Registrar Jugador</button>
       </div>
