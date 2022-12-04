@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import ModalAlert from "../../Modal";
 
 function FormUpdate({ show, handleClose, jugador }) {
   const [mensaje, setMensaje] = useState("");
@@ -189,7 +188,11 @@ function FormUpdate({ show, handleClose, jugador }) {
                   </Form.Select>
                 </div>
               </div>
-              <button className="btn-register" type="submit">
+              <button
+                className="btn-register"
+                type="submit"
+                onClick={handleClose}
+              >
                 Guardar Cambios
               </button>
             </div>
