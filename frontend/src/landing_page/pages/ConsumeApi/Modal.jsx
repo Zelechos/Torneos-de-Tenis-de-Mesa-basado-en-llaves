@@ -3,7 +3,7 @@ import Modal from "react-bootstrap/Modal";
 
 function ModalAlert({ show, handleClose, mensaje }) {
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} className="modal">
       <Modal.Header closeButton>
         <Modal.Title>Alerta</Modal.Title>
       </Modal.Header>

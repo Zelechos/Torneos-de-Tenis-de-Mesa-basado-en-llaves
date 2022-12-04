@@ -2,19 +2,21 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import ModalAlert from "../../Modal";
 
-function FormUpdate({ show, handleClose }) {
+function FormUpdate({ show, handleClose, jugador }) {
   const [mensaje, setMensaje] = useState("");
+
   const [player, setPlayer] = useState({
-    altura: 0,
+    altura: "",
     apellidos: "",
     fecha_nacimiento: "",
     mano_habil: "",
     nacionalidad: "",
-    peso: 0,
+    peso: "",
     sexo: "",
     nombre: "",
-    ranking: 0,
+    ranking: "",
   });
 
   const handleChange = (e) => {
@@ -42,12 +44,12 @@ function FormUpdate({ show, handleClose }) {
     } else {
       // consulta
       const requestInit = {
-        method: "POST",
+        method: "UPDATE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(player),
       };
 
-      fetch("http://localhost:9090/api/jugador/add", requestInit)
+      fetch("http://localhost:9090/api/jugador/" + player.id, requestInit)
         .then((respuesta) => respuesta.json())
         .then((respuesta) => console.log(respuesta));
 
@@ -63,12 +65,13 @@ function FormUpdate({ show, handleClose }) {
         nombre: "",
         ranking: 0,
       });
-      setMensaje("Se registro el Jugador");
+      setMensaje("Se actualizaron los datos");
     }
   };
+
   return (
     <>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} className="modal">
         <Modal.Header closeButton>
           <Modal.Title>Editar Datos</Modal.Title>
         </Modal.Header>
@@ -82,7 +85,7 @@ function FormUpdate({ show, handleClose }) {
                   onChange={handleChange}
                   type="text"
                   name="nombre"
-                  autocomplete="false"
+                  placeholder={jugador.nombre}
                   value={player.nombre}
                 />
               </div>
@@ -92,7 +95,7 @@ function FormUpdate({ show, handleClose }) {
                   onChange={handleChange}
                   type="text"
                   name="apellidos"
-                  autocomplete="false"
+                  placeholder={jugador.apellidos}
                   value={player.apellidos}
                 />
               </div>
@@ -103,7 +106,7 @@ function FormUpdate({ show, handleClose }) {
                   onChange={handleChange}
                   type="text"
                   name="nacionalidad"
-                  autocomplete="false"
+                  placeholder={jugador.nacionalidad}
                   value={player.nacionalidad}
                 />
               </div>
@@ -115,7 +118,7 @@ function FormUpdate({ show, handleClose }) {
                     onChange={handleChange}
                     type="date"
                     name="fecha_nacimiento"
-                    autocomplete="false"
+                    placeholder={jugador.fecha_nacimiento}
                     value={player.fecha_nacimiento}
                   />
                 </div>
@@ -125,7 +128,7 @@ function FormUpdate({ show, handleClose }) {
                     onChange={handleChange}
                     type="number"
                     name="ranking"
-                    autocomplete="false"
+                    placeholder={jugador.ranking}
                     value={player.ranking}
                   />
                 </div>
@@ -138,7 +141,7 @@ function FormUpdate({ show, handleClose }) {
                     onChange={handleChange}
                     type="number"
                     name="altura"
-                    autocomplete="false"
+                    placeholder={jugador.altura}
                     value={player.altura}
                   />
                 </div>
@@ -148,7 +151,7 @@ function FormUpdate({ show, handleClose }) {
                     onChange={handleChange}
                     type="number"
                     name="peso"
-                    autocomplete="false"
+                    placeholder={jugador.peso}
                     value={player.peso}
                   />
                 </div>
@@ -158,10 +161,10 @@ function FormUpdate({ show, handleClose }) {
                 <div className="container-select">
                   <label htmlFor="skilled-hand">Mano Habil: </label>
                   <Form.Select
-                    aria-label="Default select example"
                     className="select"
                     onChange={handleChange}
                     name="mano_habil"
+                    placeholder={jugador.mano_habil}
                     value={player.mano_habil}
                   >
                     <option value="">Ver opciones</option>
@@ -174,10 +177,10 @@ function FormUpdate({ show, handleClose }) {
                 <div className="container-select">
                   <label htmlFor="genro">Genero: </label>
                   <Form.Select
-                    aria-label="Default select example"
                     className="select"
                     onChange={handleChange}
                     name="sexo"
+                    onSelect={jugador.sexo}
                     value={player.sexo}
                   >
                     <option value="">Ver opciones</option>
