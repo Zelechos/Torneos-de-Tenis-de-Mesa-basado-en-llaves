@@ -157,3 +157,14 @@
     opacity: 1;
   }
 }
+
+.form-update {
+  background-color: #062951;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 5px 0;
+}
+
+.two-option div:first-child {
+  width: 45%;
+}

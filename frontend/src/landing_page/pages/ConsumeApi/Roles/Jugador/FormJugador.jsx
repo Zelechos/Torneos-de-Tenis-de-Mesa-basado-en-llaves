@@ -26,6 +26,7 @@ function FormJugador() {
     });
   };
 
+  // POST
   const handleSubmit = (e) => {
     e.preventDefault();
     // validar datos
@@ -78,10 +79,10 @@ function FormJugador() {
         <div className="container-img">
           <img className="jugador-img" src={JugadorImg} alt="" />
         </div>
-        <div className="data-jugador">
+        <div className="data-jugador data-jugador-update">
           <h1 className="heading">Registro Jugador</h1>
           <div className="input">
-            <label for="nombre">Nombres: </label>
+            <label htmlFor="nombre">Nombres: </label>
             <input
               onChange={handleChange}
               type="text"
@@ -91,7 +92,7 @@ function FormJugador() {
             />
           </div>
           <div className="input">
-            <label for="apellidos">Apellidos: </label>
+            <label htmlFor="apellidos">Apellidos: </label>
             <input
               onChange={handleChange}
               type="text"
@@ -102,7 +103,7 @@ function FormJugador() {
           </div>
 
           <div className="input">
-            <label for="nacionalidad">Nacionalidad: </label>
+            <label htmlFor="nacionalidad">Nacionalidad: </label>
             <input
               onChange={handleChange}
               type="text"
@@ -114,7 +115,7 @@ function FormJugador() {
 
           <div className="input two-option">
             <div className="label-fecha">
-              <label for="fecha_nacimiento">Fecha Nacimiento:</label>
+              <label htmlFor="fecha_nacimiento">Fecha Nacimiento:</label>
               <input
                 onChange={handleChange}
                 type="date"
@@ -124,7 +125,7 @@ function FormJugador() {
               />
             </div>
             <div>
-              <label for="ranking">Ranking: </label>
+              <label htmlFor="ranking">Ranking: </label>
               <input
                 onChange={handleChange}
                 type="number"
@@ -137,7 +138,7 @@ function FormJugador() {
 
           <div className="input two-option">
             <div>
-              <label for="altura">Altura (cm): </label>
+              <label htmlFor="altura">Altura (cm): </label>
               <input
                 onChange={handleChange}
                 type="number"
@@ -147,7 +148,7 @@ function FormJugador() {
               />
             </div>
             <div>
-              <label for="peso">Peso (Kg): </label>
+              <label htmlFor="peso">Peso (Kg): </label>
               <input
                 onChange={handleChange}
                 type="number"
@@ -160,7 +161,7 @@ function FormJugador() {
 
           <div className="input two-option">
             <div className="container-select">
-              <label for="skilled-hand">Mano Habil: </label>
+              <label htmlFor="skilled-hand">Mano Habil: </label>
               <Form.Select
                 aria-label="Default select example"
                 className="select"
@@ -176,7 +177,7 @@ function FormJugador() {
             </div>
 
             <div className="container-select">
-              <label for="genro">Genero: </label>
+              <label htmlFor="genro">Genero: </label>
               <Form.Select
                 aria-label="Default select example"
                 className="select"
