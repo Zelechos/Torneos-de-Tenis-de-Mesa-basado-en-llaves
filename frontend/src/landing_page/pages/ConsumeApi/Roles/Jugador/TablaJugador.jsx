@@ -2,6 +2,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import FormUpdate from "./FormUpdate";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
 function TablaJugador() {
   const [players, setPlayers] = useState([]);
@@ -70,15 +71,13 @@ function TablaJugador() {
               <td>{player.mano_habil}</td>
               <td>{player.sexo}</td>
               <td>
-                <div className="mb'3">
+                <div className="options-buttons">
                   <Button
                     variant="danger"
                     onClick={() => handleDelete(player.id)}
                   >
-                    Eliminar
+                    <AiFillDelete />
                   </Button>
-                </div>
-                <div className="mb'3">
                   <Button
                     variant="primary"
                     onClick={() => {
@@ -86,7 +85,7 @@ function TablaJugador() {
                       handleUpdate(player);
                     }}
                   >
-                    Editar
+                    <AiFillEdit />
                   </Button>
                 </div>
               </td>

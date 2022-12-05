@@ -85,7 +85,8 @@
 
 .two-option,
 .main,
-.title-table {
+.title-table,
+.options-buttons {
   display: flex;
   justify-content: space-between;
 }

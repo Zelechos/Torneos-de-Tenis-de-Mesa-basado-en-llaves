@@ -5,7 +5,7 @@ import JugadorImg from "./img-jugador.jpg";
 
 function FormJugador() {
   const [show, setShow] = useState(false);
-  const [mensaje, setMensaje] = useState("");
+  const [mensaje, setMensaje] = useState("Todos los campos deben ser llenados");
 
   const [player, setPlayer] = useState({
     altura: 0,
@@ -31,17 +31,14 @@ function FormJugador() {
     e.preventDefault();
     // validar datos
     if (
-      player.nombre === "" ||
-      player.apellidos === "" ||
-      player.nacionalidad === "" ||
-      player.sexo === "" ||
-      player.mano_habil === "" ||
-      parseFloat(player.peso) <= 0 ||
-      parseInt(player.altura) <= 0 ||
-      parseInt(player.ranking) < 0
+      !(
+        player.nombre === "" ||
+        player.apellidos === "" ||
+        player.nacionalidad === "" ||
+        player.sexo === "" ||
+        player.mano_habil === ""
+      )
     ) {
-      setMensaje("Todos los campos deben ser llenados");
-    } else {
       // consulta
       const requestInit = {
         method: "POST",
@@ -122,6 +119,8 @@ function FormJugador() {
                 name="fecha_nacimiento"
                 autocomplete="false"
                 value={player.fecha_nacimiento}
+                min="1900-01-01"
+                max="2008-12-31"
               />
             </div>
             <div>
@@ -145,6 +144,8 @@ function FormJugador() {
                 name="altura"
                 autocomplete="false"
                 value={player.altura}
+                min="130"
+                max="210"
               />
             </div>
             <div>
@@ -155,6 +156,8 @@ function FormJugador() {
                 name="peso"
                 autocomplete="false"
                 value={player.peso}
+                min="40"
+                max="110"
               />
             </div>
           </div>
