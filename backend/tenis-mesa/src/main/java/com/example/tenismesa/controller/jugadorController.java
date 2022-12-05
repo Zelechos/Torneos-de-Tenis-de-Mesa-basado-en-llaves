@@ -28,6 +28,24 @@ public class jugadorController {
         jugador.setId(pR.getId());
         repoJugador.save(jugador);
     }
+    @PutMapping("{id}")
+    public void editar(@RequestBody Jugador jugador,@PathVariable("id") Long id){
+        Participante p = new Participante();
+        p.setNombre(jugador.getNombre());
+        p.setRanking(jugador.getRanking());
+        p.setId(id);
+        Participante pR = repoParticipante.save(p);
+        jugador.setId(pR.getId());
+        jugador.setId(id);
+        repoJugador.save(jugador);
+    }
+    @DeleteMapping("{id}")
+    public void eliminar(@PathVariable("id") Long id){
+        Jugador j = repoJugador.findById(id).get();
+        Participante p = repoParticipante.findById(id).get();
+        repoJugador.delete(j);
+        repoParticipante.delete(p);
+    }
     @GetMapping("mostrar")
     public ResponseEntity<List<Jugador>> mostrarJugadores(){
 

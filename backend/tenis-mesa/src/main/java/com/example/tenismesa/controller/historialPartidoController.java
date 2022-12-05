@@ -5,7 +5,7 @@ import com.example.tenismesa.repository.RepoHistorialPartido;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/historialPartido")
+@RequestMapping("/api/historialPartido/")
 public class historialPartidoController {
     private RepoHistorialPartido repoHistorialPartido;
     public historialPartidoController(RepoHistorialPartido repoHistorialPartido) {
