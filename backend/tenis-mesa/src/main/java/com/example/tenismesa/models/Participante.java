@@ -7,22 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDate;
 
-
-@Entity(name="torneo")
+@Entity(name="participante")
 @Data
 @AllArgsConstructor
-public class Torneo {
+public class Participante {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private LocalDate fecha_final;
-    private LocalDate fecha_inicio;
-    private String descripcion;
-    private String sede;
-
-    private String lugar;
-    private Double costo;
-    public Torneo(){};
+    private Integer ranking;
+    private String nombre;
+    public Participante(){};
 }

@@ -9,20 +9,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
 
-
-@Entity(name="torneo")
+@Entity(name="arbitro")
 @Data
 @AllArgsConstructor
-public class Torneo {
+public class Arbitro {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private LocalDate fecha_final;
-    private LocalDate fecha_inicio;
-    private String descripcion;
-    private String sede;
+    private String nombre;
+    private String apellido;
+    private LocalDate fecha_nacimiento;
+    private Integer experiencia_anos;
+    private String email;
+    private Integer telefono;
 
-    private String lugar;
-    private Double costo;
-    public Torneo(){};
+    public Arbitro() {
+
+    }
 }
