@@ -3,14 +3,19 @@ import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import FormUpdate from "./FormUpdate";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import ModalAlert from "../../Modal";
 
 function TablaJugador() {
   const [players, setPlayers] = useState([]);
   const [listUpdate, setlistUpdate] = useState(false);
 
   const [show, setShow] = useState(false);
+  const [alert, setAlert] = useState(false);
+
   const handleShow = () => setShow(true);
+  const handleAlertShow = () => setAlert(true);
   const handleClose = () => setShow(false);
+  const handleAlertClose = () => setAlert(false);
 
   const [player, setPlayer] = useState({});
 
@@ -74,7 +79,10 @@ function TablaJugador() {
                 <div className="options-buttons">
                   <Button
                     variant="danger"
-                    onClick={() => handleDelete(player.id)}
+                    onClick={() => {
+                      handleAlertShow();
+                      handleDelete(player.id);
+                    }}
                   >
                     <AiFillDelete />
                   </Button>
@@ -93,11 +101,11 @@ function TablaJugador() {
           ))}
         </tbody>
       </Table>
-      <FormUpdate
-        show={show}
-        handleClose={handleClose}
-        jugador={player}
-        setJugador={setPlayer}
+      <FormUpdate show={show} handleClose={handleClose} jugador={player} />
+      <ModalAlert
+        show={alert}
+        handleClose={handleAlertClose}
+        mensaje={"Se elminio el Jugador"}
       />
     </>
   );
