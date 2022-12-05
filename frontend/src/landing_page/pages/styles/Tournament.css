@@ -30,15 +30,11 @@
 
 .cotainer-nav,
 .sub-ruta {
-    width: 50%;
+    width: 80%;
 }
 
 .link {
     font-size: 18px;
     color: #fff;
     cursor: pointer;
-}
-
-.sub-ruta {
-    background-color: #0000005d;
 }
