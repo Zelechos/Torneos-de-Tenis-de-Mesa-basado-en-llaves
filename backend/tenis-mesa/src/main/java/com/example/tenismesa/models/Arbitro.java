@@ -22,6 +22,7 @@ public class Arbitro {
     private Integer experiencia_anos;
     private String email;
     private Integer telefono;
+    private Boolean acreditar;
 
     public Arbitro() {
 

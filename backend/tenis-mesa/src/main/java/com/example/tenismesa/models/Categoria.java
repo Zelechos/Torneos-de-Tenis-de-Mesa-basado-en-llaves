@@ -8,16 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity(name="participante")
+@Entity(name="categoria")
 @Data
 @AllArgsConstructor
-public class Participante {
+
+public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private Integer ranking;
-    private String nombreCategoria;
-    private Boolean acreditar;
     private String nombre;
-    public Participante(){};
+    public Categoria(){};
 }
