@@ -15,7 +15,10 @@ function TablaJugador() {
   const handleShow = () => setShow(true);
   const handleAlertShow = () => setAlert(true);
   const handleClose = () => setShow(false);
-  const handleAlertClose = () => setAlert(false);
+  const handleAlertClose = () => {
+    setlistUpdate(true);
+    setAlert(false);
+  };
 
   const [player, setPlayer] = useState({});
 
@@ -39,8 +42,6 @@ function TablaJugador() {
     fetch("http://localhost:9090/api/jugador/" + id, requestInit)
       .then((respuesta) => respuesta.json())
       .then((respuesta) => console.log(respuesta));
-
-    setlistUpdate(true);
   };
 
   // UPDATE
@@ -105,7 +106,7 @@ function TablaJugador() {
       <ModalAlert
         show={alert}
         handleClose={handleAlertClose}
-        mensaje={"Se elminio el Jugador"}
+        mensaje={"Se elimino el Jugador"}
       />
     </>
   );
