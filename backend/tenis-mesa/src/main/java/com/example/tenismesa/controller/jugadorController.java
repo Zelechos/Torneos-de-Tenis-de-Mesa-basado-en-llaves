@@ -2,12 +2,15 @@ package com.example.tenismesa.controller;
 
 import com.example.tenismesa.models.Jugador;
 import com.example.tenismesa.models.Participante;
+import com.example.tenismesa.models.Partido;
 import com.example.tenismesa.repository.RepoJugador;
 import com.example.tenismesa.repository.RepoParticipante;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -50,5 +53,35 @@ public class jugadorController {
     public ResponseEntity<List<Jugador>> mostrarJugadores(){
 
         return new ResponseEntity<>(repoJugador.jugadores(), HttpStatus.OK);
+    }
+    @PostMapping("crearT")
+    public void cr(@RequestBody() List<Jugador> j){
+        for(Jugador jugador:j){
+            Participante p = new Participante();
+            p.setNombre(jugador.getNombre());
+            p.setRanking(jugador.getRanking());
+            Participante pR = repoParticipante.save(p);
+            jugador.setId(pR.getId());
+            repoJugador.save(jugador);
+        }
+    }
+    @GetMapping("ordenar")
+    public ResponseEntity<List> ordenar(){
+        List<Jugador> p = repoJugador.jugadores();
+        List<Integer> rankings=new ArrayList<>();
+        for(Jugador j :p){
+            rankings.add(j.getRanking());
+        }
+        Collections.sort(rankings,Collections.reverseOrder());
+        int limite=rankings.size();
+        if(limite%2!=0){
+            limite+=1;
+        }
+        limite=limite/2;
+        List<List<Integer>> partidos = new ArrayList<>();
+        for(int i = 0;i<limite;i++){
+            partidos.get(i).add(rankings.get(i));
+        }
+        return new ResponseEntity<>(rankings,HttpStatus.OK);
     }
 }
