@@ -46,7 +46,10 @@ function FormJugador() {
         body: JSON.stringify(player),
       };
 
-      fetch("http://localhost:9090/api/jugador/add", requestInit)
+      fetch(
+        "https://spring-370801.wn.r.appspot.com/api/jugador/add",
+        requestInit
+      )
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setPlayer(respuesta));
 

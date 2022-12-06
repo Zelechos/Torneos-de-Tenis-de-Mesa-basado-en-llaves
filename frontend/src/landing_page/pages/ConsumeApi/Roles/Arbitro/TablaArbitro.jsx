@@ -18,7 +18,7 @@ function TablaArbitro() {
   // GET
   useEffect(() => {
     const getRefeeres = () => {
-      fetch("http://localhost:9090/api/arbitro/mostrar")
+      fetch("https://spring-370801.wn.r.appspot.com/api/arbitro/mostrar")
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setRefeere(respuesta));
     };
@@ -32,7 +32,10 @@ function TablaArbitro() {
       method: "DELETE",
     };
 
-    fetch("http://localhost:9090/api/arbitro/" + id, requestInit)
+    fetch(
+      "https://spring-370801.wn.r.appspot.com/api/arbitro/" + id,
+      requestInit
+    )
       .then((respuesta) => respuesta.json())
       .then((respuesta) => setRefeere(respuesta));
   };

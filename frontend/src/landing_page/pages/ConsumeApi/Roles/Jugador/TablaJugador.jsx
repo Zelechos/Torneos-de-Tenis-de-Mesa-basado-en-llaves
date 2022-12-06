@@ -25,7 +25,7 @@ function TablaJugador() {
   // GET
   useEffect(() => {
     const getPlayers = () => {
-      fetch("http://localhost:9090/api/jugador/mostrar")
+      fetch("https://spring-370801.wn.r.appspot.com/api/jugador/mostrar")
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setPlayers(respuesta));
     };
@@ -39,7 +39,10 @@ function TablaJugador() {
       method: "DELETE",
     };
 
-    fetch("http://localhost:9090/api/jugador/" + id, requestInit)
+    fetch(
+      "https://spring-370801.wn.r.appspot.com/api/jugador/" + id,
+      requestInit
+    )
       .then((respuesta) => respuesta.json())
       .then((respuesta) => setPlayers(respuesta));
   };
