@@ -12,8 +12,8 @@ import { RiGroupFill } from "react-icons/ri";
 import { GiTatteredBanner } from "react-icons/gi";
 import { HiDocumentReport } from "react-icons/hi";
 
-import ListTournament from "../pages/ConsumeApi/ListTournament/ListTournament";
-import FormTournament from "../pages/ConsumeApi/formsTournament/FormTournament";
+import ListTournament from "../pages/ConsumeApi/Torneo/ListTournament";
+import FormTournament from "../pages/ConsumeApi/Torneo/FormTournament";
 import FormPartido from "../pages/ConsumeApi/FormPartido/FormPartido";
 import ListPartidos from "../pages/ConsumeApi/ListPartidos/ListPartidos";
 import FormArbitro from "../pages/ConsumeApi/Roles/Arbitro/FormArbitro";

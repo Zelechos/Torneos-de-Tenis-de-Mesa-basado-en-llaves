@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import JugadorImg from "./img-jugador.jpg";
 
