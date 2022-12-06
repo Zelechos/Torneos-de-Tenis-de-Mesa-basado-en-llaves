@@ -8,8 +8,12 @@ function TablaArbitro() {
   const [refeeres, setRefeere] = useState([]);
   const [listUpdate, setlistUpdate] = useState(false);
   const [alert, setAlert] = useState(false);
+  const [mensaje, setMensaje] = useState("");
 
-  const handleAlertShow = () => setAlert(true);
+  const handleAlertShow = (mensaje) => {
+    setMensaje(mensaje);
+    setAlert(true);
+  };
   const handleAlertClose = () => {
     setlistUpdate(true);
     setAlert(false);
@@ -40,6 +44,24 @@ function TablaArbitro() {
       .then((respuesta) => setRefeere(respuesta));
   };
 
+  //ACREDITACION ARBITRO
+  const acreditar = (refeere_acreditar) => {
+    if (!refeere_acreditar.acreditar) {
+      /*
+      const requestInit = {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(refeeres),
+      };
+
+      fetch("https://spring-370801.wn.r.appspot.com/api/arbitro/" + refeere_acreditar.id,requestInit)
+        .then((respuesta) => respuesta.json())
+        .then((respuesta) => setRefeere(respuesta));
+    */
+      setlistUpdate(true);
+    }
+  };
+
   return (
     <>
       <h1 className="title-table">Tabla Arbitros</h1>
@@ -64,7 +86,17 @@ function TablaArbitro() {
               <td>{refeere.email}</td>
               <td>{refeere.telefono}</td>
               <td>
-                <Button variant="primary">
+                <Button
+                  variant={refeere.acreditar ? "secondary" : "primary"}
+                  onClick={() => {
+                    handleAlertShow(
+                      refeere.acreditar
+                        ? "El Arbitro ya esta Acreditado"
+                        : "Se Acredito el Arbitro"
+                    );
+                    acreditar(refeere);
+                  }}
+                >
                   {refeere.acreditar ? "Acreditado" : "Acreditar"}
                 </Button>
               </td>
@@ -73,7 +105,7 @@ function TablaArbitro() {
                   <Button
                     variant="danger"
                     onClick={() => {
-                      handleAlertShow();
+                      handleAlertShow("Se elimino el Arbitro");
                       handleDelete(refeere.id);
                     }}
                   >
@@ -91,7 +123,7 @@ function TablaArbitro() {
       <ModalAlert
         show={alert}
         handleClose={handleAlertClose}
-        mensaje={"Se elimino el Arbitro"}
+        mensaje={mensaje}
       />
     </>
   );
