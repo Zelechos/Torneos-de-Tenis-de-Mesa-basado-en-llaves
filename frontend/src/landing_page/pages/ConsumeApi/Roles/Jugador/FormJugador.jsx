@@ -1,4 +1,5 @@
 import Form from "react-bootstrap/Form";
+import { useState } from "react";
 import ModalAlert from "../../Modal";
 import JugadorImg from "./img-jugador.jpg";
 
