@@ -4,17 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
 function FormUpdate({ show, handleClose, jugador }) {
-  const [player, setPlayer] = useState({
-    altura: "",
-    apellidos: "",
-    fecha_nacimiento: "",
-    mano_habil: "",
-    nacionalidad: "",
-    peso: "",
-    sexo: "",
-    nombre: "",
-    ranking: "",
-  });
+  const [player, setPlayer] = useState(jugador);
 
   const handleChange = (e) => {
     setPlayer({
@@ -30,7 +20,7 @@ function FormUpdate({ show, handleClose, jugador }) {
     if (player.nombre === "") {
       setPlayer({
         ...player,
-        nombre: e.target.placeholder,
+        nombre: jugador.nombre,
       });
     }
 
@@ -77,7 +67,7 @@ function FormUpdate({ show, handleClose, jugador }) {
   return (
     <>
       <Modal show={show} onHide={handleClose} className="modal">
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Editar Datos</Modal.Title>
         </Modal.Header>
 
@@ -88,6 +78,7 @@ function FormUpdate({ show, handleClose, jugador }) {
               <div className="input">
                 <label htmlFor="nombre">Nombres: </label>
                 <input
+                  id="nombre"
                   onChange={handleChange}
                   type="text"
                   name="nombre"

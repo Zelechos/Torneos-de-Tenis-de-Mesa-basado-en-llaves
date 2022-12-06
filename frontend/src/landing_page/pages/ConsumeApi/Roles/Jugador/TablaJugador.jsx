@@ -90,7 +90,7 @@ function TablaJugador() {
                     variant="primary"
                     onClick={() => {
                       handleShow();
-                      handleUpdate(player);
+                      handleUpdate(player.id);
                     }}
                   >
                     <AiFillEdit />
