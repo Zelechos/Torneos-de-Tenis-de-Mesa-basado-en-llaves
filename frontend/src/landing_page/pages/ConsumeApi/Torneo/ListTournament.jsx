@@ -26,7 +26,6 @@ function ListTournament() {
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Descripcion</th>
             <th>Sede</th>
             <th>Lugar</th>
             <th>Fecha Inicio</th>
@@ -39,7 +38,6 @@ function ListTournament() {
           {torneos.map((torneo) => (
             <tr key={torneo.id}>
               <td>{torneo.nombre}</td>
-              <td>{torneo.descripcion}</td>
               <td>{torneo.sede}</td>
               <td>{torneo.lugar}</td>
               <td>{torneo.fecha_inicio}</td>
