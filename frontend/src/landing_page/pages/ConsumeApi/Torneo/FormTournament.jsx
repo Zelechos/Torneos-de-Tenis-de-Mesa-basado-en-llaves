@@ -152,9 +152,10 @@ function FormTournament() {
           <div className="input">
             <label htmlFor="categoria">Categoria: </label>
             <Form.Select
+              aria-label="Default select example"
               className="select"
               onChange={handleChange}
-              name="mano_habil"
+              name="categoria_id"
               value={torneo.categoria_id}
             >
               {categorias.map((categoria) => (
