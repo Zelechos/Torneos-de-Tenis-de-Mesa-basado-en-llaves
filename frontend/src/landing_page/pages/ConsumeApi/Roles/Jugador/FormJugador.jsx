@@ -7,6 +7,9 @@ function FormJugador() {
   const [show, setShow] = useState(false);
   const [mensaje, setMensaje] = useState("Todos los campos deben ser llenados");
 
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+
   const [player, setPlayer] = useState({
     altura: 0,
     apellidos: "",
@@ -69,9 +72,6 @@ function FormJugador() {
       handleShow();
     }
   };
-
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
 
   return (
     <>
