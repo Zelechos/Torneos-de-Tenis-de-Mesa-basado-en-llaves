@@ -1,59 +1,89 @@
 import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import { useState, useEffect } from "react";
+import ModalAlert from "../../Modal";
 
 function TablaArbitro() {
+  const [refeeres, setRefeere] = useState([]);
+  const [listUpdate, setlistUpdate] = useState(false);
+  const [alert, setAlert] = useState(false);
+
+  const handleAlertShow = () => setAlert(true);
+  const handleAlertClose = () => {
+    setlistUpdate(true);
+    setAlert(false);
+  };
+
+  // GET
+  useEffect(() => {
+    const getRefeeres = () => {
+      fetch("http://localhost:9090/api/arbitro/mostrar")
+        .then((respuesta) => respuesta.json())
+        .then((respuesta) => setRefeere(respuesta));
+    };
+    getRefeeres();
+    setlistUpdate(false);
+  }, [listUpdate]);
+
+  // DELETE
+  const handleDelete = (id) => {
+    const requestInit = {
+      method: "DELETE",
+    };
+
+    fetch("http://localhost:9090/api/arbitro/" + id, requestInit)
+      .then((respuesta) => respuesta.json())
+      .then((respuesta) => setRefeere(respuesta));
+  };
+
   return (
     <>
       <h1 className="title-table">Tabla Arbitros</h1>
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Nombre</th>
+            <th>Nombres</th>
             <th>Apellidos</th>
-            <th>Altura</th>
-            <th>Peso</th>
-            <th>Nacionalidad</th>
-            <th>Mano Habil</th>
-            <th>Sexo</th>
+            <th>Experiencia (años)</th>
+            <th>Email</th>
+            <th>Telefono</th>
             <th>Opciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>Eliminar</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>Eiminar</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>Eliminar</td>
-          </tr>
+          {refeeres.map((refeere) => (
+            <tr key={refeere.id}>
+              <td>{refeere.nombre}</td>
+              <td>{refeere.apellido}</td>
+              <td>{refeere.experiencia_anos}</td>
+              <td>{refeere.email}</td>
+              <td>{refeere.telefono}</td>
+              <td>
+                <div className="options-buttons">
+                  <Button
+                    variant="danger"
+                    onClick={() => {
+                      handleAlertShow();
+                      handleDelete(refeere.id);
+                    }}
+                  >
+                    <AiFillDelete />
+                  </Button>
+                  <Button variant="primary">
+                    <AiFillEdit />
+                  </Button>
+                </div>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </Table>
+      <ModalAlert
+        show={alert}
+        handleClose={handleAlertClose}
+        mensaje={"Se elimino el Arbitro"}
+      />
     </>
   );
 }
