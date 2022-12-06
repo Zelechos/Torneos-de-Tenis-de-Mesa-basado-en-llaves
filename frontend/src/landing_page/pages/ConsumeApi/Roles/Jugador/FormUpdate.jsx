@@ -47,7 +47,7 @@ function FormUpdate({ show, handleClose, jugador }) {
 
       fetch("http://localhost:9090/api/jugador/" + jugador.id, requestInit)
         .then((respuesta) => respuesta.json())
-        .then((respuesta) => console.log(respuesta));
+        .then((respuesta) => setPlayer(respuesta));
 
       // reiniciando state del jugador
       setPlayer({
