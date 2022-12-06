@@ -1,13 +1,23 @@
 import Table from "react-bootstrap/Table";
+import { useState, useEffect } from "react";
 
 function TablaArbitro() {
+  const [refeeres, setRefeere] = useState([]);
+
+  useEffect(() => {
+    const getPlayers = () => {
+      fetch("http://localhost:9090/api/jugador/mostrar")
+        .then((respuesta) => respuesta.json())
+        .then((respuesta) => setRefeere(respuesta));
+    };
+    getPlayers();
+  }, []);
   return (
     <>
       <h1 className="title-table">Tabla Arbitros</h1>
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>ID</th>
             <th>Nombre</th>
             <th>Apellidos</th>
             <th>Altura</th>
@@ -19,39 +29,18 @@ function TablaArbitro() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>Eliminar</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>Eiminar</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>Eliminar</td>
-          </tr>
+          {refeeres.map((refeere) => (
+            <tr key={refeere.id}>
+              <td>{refeere.nombres}</td>
+              <td>{refeere.fecha_nacimiento}</td>
+              <td>{refeere.apellidos}</td>
+              <td>{refeere.experiencia}</td>
+              <td>{refeere.nacionalidad}</td>
+              <td>{refeere.email}</td>
+              <td>{refeere.telefono}</td>
+              <td>Eliminar</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </>

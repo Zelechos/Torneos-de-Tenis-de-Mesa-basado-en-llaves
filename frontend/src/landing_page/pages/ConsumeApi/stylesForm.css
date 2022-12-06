@@ -85,7 +85,8 @@
 
 .two-option,
 .main,
-.title-table {
+.title-table,
+.options-buttons {
   display: flex;
   justify-content: space-between;
 }
@@ -156,4 +157,24 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.form-update {
+  background-color: #062951;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 5px 0;
+}
+
+.two-option div:first-child {
+  width: 45%;
+}
+
+.modal {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
