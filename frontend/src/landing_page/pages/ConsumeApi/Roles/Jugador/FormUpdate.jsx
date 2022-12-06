@@ -4,8 +4,6 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
 function FormUpdate({ show, handleClose, jugador }) {
-  const [mensaje, setMensaje] = useState("");
-
   const [player, setPlayer] = useState({
     altura: "",
     apellidos: "",
@@ -29,8 +27,14 @@ function FormUpdate({ show, handleClose, jugador }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // validar datos
+    if (player.nombre === "") {
+      setPlayer({
+        ...player,
+        nombre: e.target.placeholder,
+      });
+    }
+
     if (
-      player.nombre === "" ||
       player.apellidos === "" ||
       player.nacionalidad === "" ||
       player.sexo === "" ||
@@ -39,16 +43,19 @@ function FormUpdate({ show, handleClose, jugador }) {
       parseInt(player.altura) <= 0 ||
       parseInt(player.ranking) < 0
     ) {
-      setMensaje("Todos los campos deben ser llenados");
+      setPlayer({
+        ...player,
+        [e.target.name]: e.target.placeholder,
+      });
     } else {
       // consulta
       const requestInit = {
-        method: "UPDATE",
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(player),
       };
 
-      fetch("http://localhost:9090/api/jugador/" + player.id, requestInit)
+      fetch("http://localhost:9090/api/jugador/" + jugador.id, requestInit)
         .then((respuesta) => respuesta.json())
         .then((respuesta) => console.log(respuesta));
 
@@ -64,7 +71,6 @@ function FormUpdate({ show, handleClose, jugador }) {
         nombre: "",
         ranking: 0,
       });
-      setMensaje("Se actualizaron los datos");
     }
   };
 
@@ -77,6 +83,7 @@ function FormUpdate({ show, handleClose, jugador }) {
 
         <Modal.Body>
           <form className="main form-update" onSubmit={handleSubmit}>
+            <h1>{jugador.id}</h1>
             <div>
               <div className="input">
                 <label htmlFor="nombre">Nombres: </label>
@@ -191,7 +198,10 @@ function FormUpdate({ show, handleClose, jugador }) {
               <button
                 className="btn-register"
                 type="submit"
-                onClick={handleClose}
+                onClick={() => {
+                  handleClose();
+                  //handleDelete(player.id);
+                }}
               >
                 Guardar Cambios
               </button>
