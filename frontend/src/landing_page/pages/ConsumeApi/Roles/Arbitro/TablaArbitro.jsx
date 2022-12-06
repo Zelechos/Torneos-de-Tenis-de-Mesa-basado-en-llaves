@@ -1,44 +1,54 @@
 import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { useState, useEffect } from "react";
 
 function TablaArbitro() {
   const [refeeres, setRefeere] = useState([]);
+  const [listUpdate, setlistUpdate] = useState(false);
 
   useEffect(() => {
-    const getPlayers = () => {
-      fetch("http://localhost:9090/api/jugador/mostrar")
+    const getRefeeres = () => {
+      fetch("http://localhost:9090/api/arbitro/mostrar")
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setRefeere(respuesta));
     };
-    getPlayers();
-  }, []);
+    getRefeeres();
+    setlistUpdate(false);
+  }, [listUpdate]);
+
   return (
     <>
       <h1 className="title-table">Tabla Arbitros</h1>
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>Nombre</th>
+            <th>Nombres</th>
             <th>Apellidos</th>
-            <th>Altura</th>
-            <th>Peso</th>
-            <th>Nacionalidad</th>
-            <th>Mano Habil</th>
-            <th>Sexo</th>
+            <th>Experiencia (años)</th>
+            <th>Email</th>
+            <th>Telefono</th>
             <th>Opciones</th>
           </tr>
         </thead>
         <tbody>
           {refeeres.map((refeere) => (
             <tr key={refeere.id}>
-              <td>{refeere.nombres}</td>
-              <td>{refeere.fecha_nacimiento}</td>
-              <td>{refeere.apellidos}</td>
-              <td>{refeere.experiencia}</td>
-              <td>{refeere.nacionalidad}</td>
+              <td>{refeere.nombre}</td>
+              <td>{refeere.apellido}</td>
+              <td>{refeere.experiencia_anos}</td>
               <td>{refeere.email}</td>
               <td>{refeere.telefono}</td>
-              <td>Eliminar</td>
+              <td>
+                <div className="options-buttons">
+                  <Button variant="danger">
+                    <AiFillDelete />
+                  </Button>
+                  <Button variant="primary">
+                    <AiFillEdit />
+                  </Button>
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
