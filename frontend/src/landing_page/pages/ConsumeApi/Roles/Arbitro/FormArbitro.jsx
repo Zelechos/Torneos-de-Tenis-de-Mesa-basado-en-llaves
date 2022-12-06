@@ -44,7 +44,10 @@ function FormArbitro() {
         body: JSON.stringify(referee),
       };
 
-      fetch("http://localhost:9090/api/arbitro/add", requestInit)
+      fetch(
+        "https://spring-370801.wn.r.appspot.com/api/arbitro/add",
+        requestInit
+      )
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setReferee(respuesta));
 
