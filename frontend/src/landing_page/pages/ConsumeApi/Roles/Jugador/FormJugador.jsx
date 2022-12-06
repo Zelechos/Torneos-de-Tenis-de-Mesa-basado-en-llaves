@@ -48,7 +48,7 @@ function FormJugador() {
 
       fetch("http://localhost:9090/api/jugador/add", requestInit)
         .then((respuesta) => respuesta.json())
-        .then((respuesta) => console.log(respuesta));
+        .then((respuesta) => setPlayer(respuesta));
 
       // reiniciando state del jugador
       setPlayer({
@@ -84,7 +84,6 @@ function FormJugador() {
               onChange={handleChange}
               type="text"
               name="nombre"
-              autocomplete="false"
               value={player.nombre}
             />
           </div>
@@ -94,7 +93,6 @@ function FormJugador() {
               onChange={handleChange}
               type="text"
               name="apellidos"
-              autocomplete="false"
               value={player.apellidos}
             />
           </div>
@@ -105,7 +103,6 @@ function FormJugador() {
               onChange={handleChange}
               type="text"
               name="nacionalidad"
-              autocomplete="false"
               value={player.nacionalidad}
             />
           </div>
@@ -117,7 +114,6 @@ function FormJugador() {
                 onChange={handleChange}
                 type="date"
                 name="fecha_nacimiento"
-                autocomplete="false"
                 value={player.fecha_nacimiento}
                 min="1900-01-01"
                 max="2008-12-31"
@@ -129,7 +125,6 @@ function FormJugador() {
                 onChange={handleChange}
                 type="number"
                 name="ranking"
-                autocomplete="false"
                 value={player.ranking}
               />
             </div>
@@ -142,7 +137,6 @@ function FormJugador() {
                 onChange={handleChange}
                 type="number"
                 name="altura"
-                autocomplete="false"
                 value={player.altura}
                 min="130"
                 max="210"
@@ -154,7 +148,6 @@ function FormJugador() {
                 onChange={handleChange}
                 type="number"
                 name="peso"
-                autocomplete="false"
                 value={player.peso}
                 min="40"
                 max="110"
