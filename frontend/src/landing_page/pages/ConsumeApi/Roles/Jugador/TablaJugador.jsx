@@ -65,6 +65,7 @@ function TablaJugador() {
             <th>Nacionalidad</th>
             <th>Mano Habil</th>
             <th>Sexo</th>
+            <th>Acreditacion</th>
             <th>Opciones</th>
           </tr>
         </thead>
@@ -79,6 +80,11 @@ function TablaJugador() {
               <td>{player.nacionalidad}</td>
               <td>{player.mano_habil}</td>
               <td>{player.sexo}</td>
+              <td>
+                <Button variant="primary">
+                  {player.acreditar ? "Acreditado" : "Acreditar"}
+                </Button>
+              </td>
               <td>
                 <div className="options-buttons">
                   <Button

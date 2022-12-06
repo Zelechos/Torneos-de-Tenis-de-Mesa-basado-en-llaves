@@ -91,7 +91,7 @@ function FormArbitro() {
               value={referee.apellido}
             />
           </div>
-          <div className="input fecha">
+          <div className="input two-option">
             <div className="label-fecha">
               <label htmlFor="fecha_nacimiento">Fecha Nacimiento:</label>
               <input

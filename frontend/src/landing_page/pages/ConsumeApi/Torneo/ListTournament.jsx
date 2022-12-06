@@ -9,12 +9,12 @@ function ListTournament() {
 
   // GET
   useEffect(() => {
-    const getPlayers = () => {
+    const getTorneos = () => {
       fetch("https://spring-370801.wn.r.appspot.com/api/torneo/mostrar")
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setTorneos(respuesta));
     };
-    getPlayers();
+    getTorneos();
     setlistUpdate(false);
   }, [listUpdate]);
 
@@ -29,7 +29,6 @@ function ListTournament() {
             <th>Descripcion</th>
             <th>Sede</th>
             <th>Lugar</th>
-            <th>Costo</th>
             <th>Fecha Inicio</th>
             <th>Fecha Final</th>
             <th>Categoria</th>
@@ -43,10 +42,9 @@ function ListTournament() {
               <td>{torneo.descripcion}</td>
               <td>{torneo.sede}</td>
               <td>{torneo.lugar}</td>
-              <td>{torneo.costo}</td>
               <td>{torneo.fecha_inicio}</td>
               <td>{torneo.fecha_final}</td>
-              <td>{torneo.categoria}</td>
+              <td>{torneo.categoria_id}</td>
               <td>
                 <div className="options-buttons">
                   <Button variant="danger">
