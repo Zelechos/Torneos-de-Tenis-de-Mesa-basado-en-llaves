@@ -41,7 +41,7 @@ function TablaJugador() {
 
     fetch("http://localhost:9090/api/jugador/" + id, requestInit)
       .then((respuesta) => respuesta.json())
-      .then((respuesta) => console.log(respuesta));
+      .then((respuesta) => setPlayers(respuesta));
   };
 
   // UPDATE

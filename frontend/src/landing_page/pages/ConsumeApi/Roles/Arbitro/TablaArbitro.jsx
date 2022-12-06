@@ -2,11 +2,20 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { useState, useEffect } from "react";
+import ModalAlert from "../../Modal";
 
 function TablaArbitro() {
   const [refeeres, setRefeere] = useState([]);
   const [listUpdate, setlistUpdate] = useState(false);
+  const [alert, setAlert] = useState(false);
 
+  const handleAlertShow = () => setAlert(true);
+  const handleAlertClose = () => {
+    setlistUpdate(true);
+    setAlert(false);
+  };
+
+  // GET
   useEffect(() => {
     const getRefeeres = () => {
       fetch("http://localhost:9090/api/arbitro/mostrar")
@@ -16,6 +25,17 @@ function TablaArbitro() {
     getRefeeres();
     setlistUpdate(false);
   }, [listUpdate]);
+
+  // DELETE
+  const handleDelete = (id) => {
+    const requestInit = {
+      method: "DELETE",
+    };
+
+    fetch("http://localhost:9090/api/arbitro/" + id, requestInit)
+      .then((respuesta) => respuesta.json())
+      .then((respuesta) => setRefeere(respuesta));
+  };
 
   return (
     <>
@@ -41,7 +61,13 @@ function TablaArbitro() {
               <td>{refeere.telefono}</td>
               <td>
                 <div className="options-buttons">
-                  <Button variant="danger">
+                  <Button
+                    variant="danger"
+                    onClick={() => {
+                      handleAlertShow();
+                      handleDelete(refeere.id);
+                    }}
+                  >
                     <AiFillDelete />
                   </Button>
                   <Button variant="primary">
@@ -53,6 +79,11 @@ function TablaArbitro() {
           ))}
         </tbody>
       </Table>
+      <ModalAlert
+        show={alert}
+        handleClose={handleAlertClose}
+        mensaje={"Se elimino el Arbitro"}
+      />
     </>
   );
 }
