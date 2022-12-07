@@ -44,7 +44,7 @@ public class torneoController {
     public ResponseEntity<List<DTOParticipantePartido>> crearLlaves(){
         //Torneo t = repoTorneo.findById(id).get();
         List<Participante> participanteList = repoParticipante.findAll();//repoParticipante.findByTorneo(t);
-        participanteList.sort(Comparator.comparing(Participante::getRanking));
+        participanteList.sort(Comparator.comparing(Participante::getRanking,Comparator.reverseOrder()));
         int matches = participanteList.size();
         if(matches%2!=0){
             Participante p = new Participante();

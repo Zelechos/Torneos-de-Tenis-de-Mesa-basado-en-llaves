@@ -7,7 +7,7 @@ function ListPartidos() {
 
   useEffect(() => {
     const GetPlayers = () => {
-      fetch("http://localhost:9090/api/arbitro/mostrar")
+      fetch("http://localhost:9090/api/torneo/crearLlaves")
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setPlayers(respuesta));
     };
@@ -15,16 +15,36 @@ function ListPartidos() {
     setlistUpdate(false);
   }, [listUpdate]);
 
+
+  
   return (
     <>
       <h1 className="title-table">LLaves</h1>
-      <ul>
+      <ul className="first">
         {players.map((player) => (
           <>
             <li>{player["p1"].nombre}</li>
-            <li>{player["p2"].nombre}</li>
+            <li className="last">{player["p2"].nombre}</li>
           </>
         ))}
+      </ul>
+      
+      <ul className="second">
+        {players.map((player, index) => 
+          player["p2"].nombre == "BYE" || player["p1"].nombre == "BYE"
+            ?<><li>{player["p1"].nombre}</li></>
+            :<><li>-</li></>
+          )
+        }
+      </ul>
+
+      <ul className="third">
+        <li>-</li>
+        <li>-</li>
+      </ul>
+
+      <ul className="four">
+          <li>-</li>
       </ul>
     </>
   );
