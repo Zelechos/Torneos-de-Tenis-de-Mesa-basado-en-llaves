@@ -1,0 +1,48 @@
+li {
+  color: aliceblue;
+  width: 155px;
+  background-color: #062951;
+  border-radius: 5px;
+  border: 2px solid ;
+  padding: 5px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.line {
+  height: 7px;
+  width: 30px;
+  position: absolute;
+}
+
+.last{
+  margin-bottom: 35px;
+}
+
+ul{
+  position: absolute;
+  width: 220px;
+}
+
+.second{
+  top: 205px;
+  margin-left: 200px;
+}
+
+.second li{
+  margin-bottom: 85px;
+}
+
+.third{
+  top: 270px;
+  margin-left: 400px;
+}
+
+.third li{
+  margin-bottom: 205px;
+}
+
+.four{
+  top: 380px;
+  margin-left: 600px;
+}
