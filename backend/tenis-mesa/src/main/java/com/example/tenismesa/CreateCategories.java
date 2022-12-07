@@ -18,7 +18,7 @@ public class CreateCategories implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments arg0) throws Exception {
-        Categoria c= new Categoria();
+      /*  Categoria c= new Categoria();
         c.setNombre("Individuaels");
         Categoria c1= new Categoria();
         c1.setNombre("Dobles");
@@ -41,7 +41,7 @@ public class CreateCategories implements ApplicationRunner {
         repoCategoria.save(c4);
         repoCategoria.save(c5);
         repoCategoria.save(c6);
-        repoCategoria.save(c7);
+        repoCategoria.save(c7);*/
         System.out.println("ApplicationRunnerBean");
     }
 }

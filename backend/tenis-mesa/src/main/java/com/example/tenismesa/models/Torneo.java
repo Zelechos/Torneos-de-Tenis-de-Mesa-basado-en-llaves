@@ -21,6 +21,7 @@ public class Torneo {
 
     private String lugar;
     private Double costo;
+    private String nombre;
     @ManyToOne
     @JoinColumn(name="categoria_id")
     private Categoria categoria;

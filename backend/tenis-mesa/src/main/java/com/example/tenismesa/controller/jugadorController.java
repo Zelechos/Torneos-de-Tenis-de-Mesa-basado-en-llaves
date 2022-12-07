@@ -3,6 +3,7 @@ package com.example.tenismesa.controller;
 import com.example.tenismesa.models.Jugador;
 import com.example.tenismesa.models.Participante;
 import com.example.tenismesa.models.Partido;
+import com.example.tenismesa.models.Torneo;
 import com.example.tenismesa.repository.RepoJugador;
 import com.example.tenismesa.repository.RepoParticipante;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,7 @@ public class jugadorController {
         Participante p = new Participante();
         p.setNombre(jugador.getNombre());
         p.setRanking(jugador.getRanking());
+        p.setAcreditar(Boolean.FALSE);
         Participante pR = repoParticipante.save(p);
         jugador.setId(pR.getId());
         repoJugador.save(jugador);
@@ -36,11 +38,18 @@ public class jugadorController {
         Participante p = new Participante();
         p.setNombre(jugador.getNombre());
         p.setRanking(jugador.getRanking());
+        //p.setAcreditar(jugador.getAcreditar());
         p.setId(id);
         Participante pR = repoParticipante.save(p);
         jugador.setId(pR.getId());
         jugador.setId(id);
         repoJugador.save(jugador);
+    }
+    @PutMapping("acreditar/{id}")
+    public void editar(@PathVariable("id") Long id){
+       Participante p = repoParticipante.findById(id).get();
+       p.setAcreditar(Boolean.TRUE);
+       repoParticipante.save(p);
     }
     @DeleteMapping("{id}")
     public void eliminar(@PathVariable("id") Long id){
@@ -60,6 +69,7 @@ public class jugadorController {
             Participante p = new Participante();
             p.setNombre(jugador.getNombre());
             p.setRanking(jugador.getRanking());
+            p.setAcreditar(Boolean.FALSE);
             Participante pR = repoParticipante.save(p);
             jugador.setId(pR.getId());
             repoJugador.save(jugador);
@@ -83,5 +93,13 @@ public class jugadorController {
             partidos.get(i).add(rankings.get(i));
         }
         return new ResponseEntity<>(rankings,HttpStatus.OK);
+    }
+    @GetMapping("{id}")
+    public ResponseEntity<Jugador> byId(@PathVariable("id") Long id){
+        Participante p = repoParticipante.findById(id).get();
+        Jugador j = repoJugador.findById(id).get();
+        j.setRanking(p.getRanking());
+        j.setNombre(p.getNombre());
+        return new ResponseEntity<>(j,HttpStatus.OK);
     }
 }
