@@ -8,12 +8,16 @@ import ModalAlert from "../../Modal";
 function TablaJugador() {
   const [players, setPlayers] = useState([]);
   const [listUpdate, setlistUpdate] = useState(false);
+  const [mensaje, setMensaje] = useState("");
 
   const [show, setShow] = useState(false);
   const [alert, setAlert] = useState(false);
 
   const handleShow = () => setShow(true);
-  const handleAlertShow = () => setAlert(true);
+  const handleAlertShow = (mensaje) => {
+    setMensaje(mensaje);
+    setAlert(true);
+  };
   const handleClose = () => setShow(false);
   const handleAlertClose = () => {
     setlistUpdate(true);
@@ -51,6 +55,24 @@ function TablaJugador() {
   const handleUpdate = (player) => {
     setPlayer(player);
   };
+
+  //ACREDITACION ARBITRO
+  const acreditar = (jugador_acreditar) => {
+    if (!jugador_acreditar.acreditar) {
+      /*
+      const requestInit = {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(refeeres),
+      };
+
+      fetch("https://spring-370801.wn.r.appspot.com/api/arbitro/" + refeere_acreditar.id,requestInit)
+        .then((respuesta) => respuesta.json())
+        .then((respuesta) => setRefeere(respuesta));
+    */
+      setlistUpdate(true);
+    }
+  };
   return (
     <>
       <h1 className="title-table">Tabla Jugadores</h1>
@@ -81,7 +103,17 @@ function TablaJugador() {
               <td>{player.mano_habil}</td>
               <td>{player.sexo}</td>
               <td>
-                <Button variant="primary">
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    handleAlertShow(
+                      player.acreditar
+                        ? "El Jugador ya esta Acreditado"
+                        : "Se Acredito el Jugador"
+                    );
+                    acreditar(player);
+                  }}
+                >
                   {player.acreditar ? "Acreditado" : "Acreditar"}
                 </Button>
               </td>
@@ -90,7 +122,7 @@ function TablaJugador() {
                   <Button
                     variant="danger"
                     onClick={() => {
-                      handleAlertShow();
+                      handleAlertShow("Se elimino el Jugador");
                       handleDelete(player.id);
                     }}
                   >
@@ -115,7 +147,7 @@ function TablaJugador() {
       <ModalAlert
         show={alert}
         handleClose={handleAlertClose}
-        mensaje={"Se elimino el Jugador"}
+        mensaje={mensaje}
       />
     </>
   );
