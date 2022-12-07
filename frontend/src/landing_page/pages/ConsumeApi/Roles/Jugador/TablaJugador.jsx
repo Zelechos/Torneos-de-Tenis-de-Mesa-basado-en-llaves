@@ -56,23 +56,26 @@ function TablaJugador() {
     setPlayer(player);
   };
 
-  //ACREDITACION ARBITRO
-  const acreditar = (jugador_acreditar) => {
+  //ACREDITACION JUGADOR
+  const acreditarJugador = (jugador_acreditar) => {
     if (!jugador_acreditar.acreditar) {
-      /*
       const requestInit = {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(refeeres),
+        body: JSON.stringify(players),
       };
 
-      fetch("https://spring-370801.wn.r.appspot.com/api/arbitro/" + refeere_acreditar.id,requestInit)
+      fetch(
+        "https://spring-370801.wn.r.appspot.com/api/jugador/acreditar/" +
+          jugador_acreditar.id,
+        requestInit
+      )
         .then((respuesta) => respuesta.json())
-        .then((respuesta) => setRefeere(respuesta));
-    */
+        .then((respuesta) => setPlayers(respuesta));
       setlistUpdate(true);
     }
   };
+
   return (
     <>
       <h1 className="title-table">Tabla Jugadores</h1>
@@ -104,14 +107,14 @@ function TablaJugador() {
               <td>{player.sexo}</td>
               <td>
                 <Button
-                  variant="primary"
+                  variant={player.acreditar ? "secondary" : "primary"}
                   onClick={() => {
                     handleAlertShow(
                       player.acreditar
                         ? "El Jugador ya esta Acreditado"
                         : "Se Acredito el Jugador"
                     );
-                    acreditar(player);
+                    acreditarJugador(player);
                   }}
                 >
                   {player.acreditar ? "Acreditado" : "Acreditar"}
