@@ -45,19 +45,19 @@ function TablaArbitro() {
   };
 
   //ACREDITACION ARBITRO
-  const acreditar = (refeere_acreditar) => {
+  const acreditarReferee = (refeere_acreditar) => {
     if (!refeere_acreditar.acreditar) {
-      /*
       const requestInit = {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(refeeres),
       };
 
-      fetch("https://spring-370801.wn.r.appspot.com/api/arbitro/" + refeere_acreditar.id,requestInit)
+      fetch(
+        "https://spring-370801.wn.r.appspot.com/api/arbitro/acreditar/" +
+          refeere_acreditar.id,
+        requestInit
+      )
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setRefeere(respuesta));
-    */
       setlistUpdate(true);
     }
   };
@@ -94,7 +94,7 @@ function TablaArbitro() {
                         ? "El Arbitro ya esta Acreditado"
                         : "Se Acredito el Arbitro"
                     );
-                    acreditar(refeere);
+                    acreditarReferee(refeere);
                   }}
                 >
                   {refeere.acreditar ? "Acreditado" : "Acreditar"}

@@ -119,7 +119,7 @@ function FormJugador() {
                 name="fecha_nacimiento"
                 value={player.fecha_nacimiento}
                 min="1900-01-01"
-                max="2008-12-31"
+                max="2001-12-31"
               />
             </div>
             <div>

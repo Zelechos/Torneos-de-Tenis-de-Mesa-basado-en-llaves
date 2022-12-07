@@ -135,11 +135,13 @@
 
 .title-table {
   justify-content: center;
+  align-items: center;
   font-size: 30px;
-  font-weight: 700;
   padding: 5px;
   color: #fff;
-  background: #0a043a9c;
+  width: 100%;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(90deg, rgba(34, 193, 195, 1) 0%, rgba(31, 95, 176, 1) 10%, rgba(41, 32, 32, 0) 100%);
 }
 
 .table,
@@ -171,7 +173,6 @@
 }
 
 .modal {
-  /* From https://css.glass */
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
