@@ -7,7 +7,7 @@ function ListPartidos() {
 
   useEffect(() => {
     const GetPlayers = () => {
-      fetch("http://localhost:9090/api/torneo/crearLlaves")
+      fetch("https://spring-370801.wn.r.appspot.com/api/torneo/crearLlaves")
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setPlayers(respuesta));
     };
@@ -15,8 +15,6 @@ function ListPartidos() {
     setlistUpdate(false);
   }, [listUpdate]);
 
-
-  
   return (
     <>
       <h1 className="title-table">LLaves</h1>
@@ -28,14 +26,19 @@ function ListPartidos() {
           </>
         ))}
       </ul>
-      
+
       <ul className="second">
-        {players.map((player, index) => 
-          player["p2"].nombre == "BYE" || player["p1"].nombre == "BYE"
-            ?<><li>{player["p1"].nombre}</li></>
-            :<><li>-</li></>
+        {players.map((player, index) =>
+          player["p2"].nombre === "BYE" || player["p1"].nombre === "BYE" ? (
+            <>
+              <li>{player["p1"].nombre}</li>
+            </>
+          ) : (
+            <>
+              <li>-</li>
+            </>
           )
-        }
+        )}
       </ul>
 
       <ul className="third">
@@ -44,7 +47,7 @@ function ListPartidos() {
       </ul>
 
       <ul className="four">
-          <li>-</li>
+        <li>-</li>
       </ul>
     </>
   );
