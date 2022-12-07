@@ -38,7 +38,7 @@ public class jugadorController {
         Participante p = new Participante();
         p.setNombre(jugador.getNombre());
         p.setRanking(jugador.getRanking());
-        //p.setAcreditar(jugador.getAcreditar());
+        p.setAcreditar(jugador.getAcreditar());
         p.setId(id);
         Participante pR = repoParticipante.save(p);
         jugador.setId(pR.getId());
@@ -46,7 +46,7 @@ public class jugadorController {
         repoJugador.save(jugador);
     }
     @PutMapping("acreditar/{id}")
-    public void editar(@PathVariable("id") Long id){
+    public void acreditar(@PathVariable("id") Long id){
        Participante p = repoParticipante.findById(id).get();
        p.setAcreditar(Boolean.TRUE);
        repoParticipante.save(p);

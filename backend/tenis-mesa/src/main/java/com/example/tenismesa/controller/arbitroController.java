@@ -1,6 +1,7 @@
 package com.example.tenismesa.controller;
 
 import com.example.tenismesa.models.Arbitro;
+import com.example.tenismesa.models.Participante;
 import com.example.tenismesa.repository.RepoArbitro;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,12 @@ public class arbitroController {
     public void eliminar(@PathVariable("id") Long id){
         Arbitro a = this.repoArbitro.findById(id).get();
         repoArbitro.delete(a);
+    }
+    @PutMapping("acreditar/{id}")
+    public void acreditar(@PathVariable("id") Long id){
+        Arbitro a = repoArbitro.findById(id).get();
+        a.setAcreditar(Boolean.TRUE);
+        repoArbitro.save(a);
     }
     @GetMapping("mostrar")
     public ResponseEntity<List<Arbitro>> mostrar(){
