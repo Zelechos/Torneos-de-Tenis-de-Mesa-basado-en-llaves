@@ -25,7 +25,7 @@ function TablaJugador() {
   // GET
   useEffect(() => {
     const getPlayers = () => {
-      fetch("http://localhost:9090/api/jugador/mostrar")
+      fetch("https://spring-370801.wn.r.appspot.com/api/jugador/mostrar")
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setPlayers(respuesta));
     };
@@ -39,9 +39,12 @@ function TablaJugador() {
       method: "DELETE",
     };
 
-    fetch("http://localhost:9090/api/jugador/" + id, requestInit)
+    fetch(
+      "https://spring-370801.wn.r.appspot.com/api/jugador/" + id,
+      requestInit
+    )
       .then((respuesta) => respuesta.json())
-      .then((respuesta) => console.log(respuesta));
+      .then((respuesta) => setPlayers(respuesta));
   };
 
   // UPDATE
@@ -62,6 +65,7 @@ function TablaJugador() {
             <th>Nacionalidad</th>
             <th>Mano Habil</th>
             <th>Sexo</th>
+            <th>Acreditacion</th>
             <th>Opciones</th>
           </tr>
         </thead>
@@ -76,6 +80,11 @@ function TablaJugador() {
               <td>{player.nacionalidad}</td>
               <td>{player.mano_habil}</td>
               <td>{player.sexo}</td>
+              <td>
+                <Button variant="primary">
+                  {player.acreditar ? "Acreditado" : "Acreditar"}
+                </Button>
+              </td>
               <td>
                 <div className="options-buttons">
                   <Button

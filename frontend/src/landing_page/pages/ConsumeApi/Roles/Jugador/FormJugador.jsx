@@ -1,11 +1,14 @@
-import { useState } from "react";
 import Form from "react-bootstrap/Form";
+import { useState } from "react";
 import ModalAlert from "../../Modal";
 import JugadorImg from "./img-jugador.jpg";
 
 function FormJugador() {
   const [show, setShow] = useState(false);
   const [mensaje, setMensaje] = useState("Todos los campos deben ser llenados");
+
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
   const [player, setPlayer] = useState({
     altura: 0,
@@ -46,7 +49,10 @@ function FormJugador() {
         body: JSON.stringify(player),
       };
 
-      fetch("http://localhost:9090/api/jugador/add", requestInit)
+      fetch(
+        "https://spring-370801.wn.r.appspot.com/api/jugador/add",
+        requestInit
+      )
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setPlayer(respuesta));
 
@@ -66,9 +72,6 @@ function FormJugador() {
       handleShow();
     }
   };
-
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
 
   return (
     <>

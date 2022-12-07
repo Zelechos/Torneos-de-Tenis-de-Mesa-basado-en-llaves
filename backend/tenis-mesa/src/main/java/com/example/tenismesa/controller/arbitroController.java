@@ -17,6 +17,12 @@ public class arbitroController {
     }
     @PostMapping("add")
     public void agregar(@RequestBody Arbitro arbitro){
+        arbitro.setAcreditar(Boolean.FALSE);
+        repoArbitro.save(arbitro);
+    }
+    @PutMapping("{id}")
+    public void editar(@RequestBody Arbitro arbitro, @PathVariable("id") Long id){
+        arbitro.setId(id);
         repoArbitro.save(arbitro);
     }
     @DeleteMapping("{id}")

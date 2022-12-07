@@ -3,10 +3,7 @@ package com.example.tenismesa.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 
@@ -24,5 +21,9 @@ public class Torneo {
 
     private String lugar;
     private Double costo;
+    private String nombre;
+    @ManyToOne
+    @JoinColumn(name="categoria_id")
+    private Categoria categoria;
     public Torneo(){};
 }

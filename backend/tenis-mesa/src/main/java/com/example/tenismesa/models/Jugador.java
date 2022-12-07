@@ -24,11 +24,13 @@ public class Jugador {
     private String nombre;
     @Transient
     private Integer ranking;
+    @Transient
+    private Boolean acreditar;
     @ManyToOne
     @JoinColumn(name="equipo_fk")
     private Equipo equipo;
     public Jugador(){};
-    public Jugador(Double altura, String apellidos, LocalDate fecha_nacimiento, String nombre, Integer ranking, Character sexo, Character mano_habil, String nacionalidad, Double peso, Long id){
+    public Jugador(Double altura, String apellidos, LocalDate fecha_nacimiento, String nombre, Integer ranking, Boolean acreditar, Character sexo, Character mano_habil, String nacionalidad, Double peso, Long id){
         this.altura = altura;
         this.apellidos = apellidos;
         this.fecha_nacimiento = fecha_nacimiento;
@@ -39,5 +41,6 @@ public class Jugador {
         this.peso = peso;
         this.id= id;
         this.ranking= ranking;
+        this.acreditar = acreditar;
     };
 }
