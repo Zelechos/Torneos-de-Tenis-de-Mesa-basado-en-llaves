@@ -1,0 +1,16 @@
+li {
+  width: 155px;
+  background-color: aliceblue;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.line {
+  color: green;
+  height: 7px;
+  width: 30px;
+  background-color: green;
+  position: absolute;
+}
