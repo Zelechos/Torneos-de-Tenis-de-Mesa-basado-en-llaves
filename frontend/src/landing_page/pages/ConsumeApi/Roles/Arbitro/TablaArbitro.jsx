@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { useState, useEffect } from "react";
 import ModalAlert from "../../Modal";
-import { GiConsoleController } from "react-icons/gi";
 
 function TablaArbitro() {
   const [refeeres, setRefeere] = useState([]);
@@ -50,8 +49,6 @@ function TablaArbitro() {
     if (!refeere_acreditar.acreditar) {
       const requestInit = {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(refeeres),
       };
 
       fetch(

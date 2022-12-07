@@ -61,8 +61,6 @@ function TablaJugador() {
     if (!jugador_acreditar.acreditar) {
       const requestInit = {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(players),
       };
 
       fetch(
