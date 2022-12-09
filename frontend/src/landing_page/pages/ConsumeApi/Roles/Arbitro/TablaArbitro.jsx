@@ -10,6 +10,8 @@ function TablaArbitro() {
   const [alert, setAlert] = useState(false);
   const [mensaje, setMensaje] = useState("");
 
+  let nroArbitros = 0;
+
   const handleAlertShow = (mensaje) => {
     setMensaje(mensaje);
     setAlert(true);
@@ -68,6 +70,7 @@ function TablaArbitro() {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
+            <th>Nro</th>
             <th>Nombres</th>
             <th>Apellidos</th>
             <th>Experiencia (años)</th>
@@ -80,6 +83,7 @@ function TablaArbitro() {
         <tbody>
           {refeeres.map((refeere) => (
             <tr key={refeere.id}>
+              <td>{(nroArbitros = nroArbitros + 1)}</td>
               <td>{refeere.nombre}</td>
               <td>{refeere.apellido}</td>
               <td>{refeere.experiencia_anos}</td>

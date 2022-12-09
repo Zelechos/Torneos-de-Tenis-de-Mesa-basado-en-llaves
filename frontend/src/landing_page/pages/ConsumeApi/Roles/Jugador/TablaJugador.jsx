@@ -74,7 +74,7 @@ function TablaJugador() {
     }
   };
 
-  let nroJu = 0;
+  let nroJugadores = 0;
   return (
     <>
       <h1 className="title-table">Tabla Jugadores</h1>
@@ -97,7 +97,7 @@ function TablaJugador() {
         <tbody>
           {players.map((player) => (
             <tr key={player.id}>
-              <td>{(nroJu = nroJu + 1)}</td>
+              <td>{(nroJugadores = nroJugadores + 1)}</td>
               <td>{player.nombre}</td>
               <td>{player.apellidos}</td>
               <td>{player.ranking}</td>
