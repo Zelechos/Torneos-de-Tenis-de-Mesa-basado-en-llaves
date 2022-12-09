@@ -40,6 +40,8 @@ function ListTournament() {
       .then((respuesta) => setTorneos(respuesta));
   };
 
+  let nroTournament = 0;
+
   return (
     <>
       <h1 className="title-table">Tabla Torneos</h1>
@@ -47,6 +49,7 @@ function ListTournament() {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
+            <th>Nro</th>
             <th>Nombre</th>
             <th>Sede</th>
             <th>Lugar</th>
@@ -59,6 +62,7 @@ function ListTournament() {
         <tbody>
           {torneos.map((torneo) => (
             <tr key={torneo.id}>
+              <td>{(nroTournament = nroTournament + 1)}</td>
               <td>{torneo.nombre}</td>
               <td>{torneo.sede}</td>
               <td>{torneo.lugar}</td>
