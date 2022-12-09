@@ -11,6 +11,7 @@ function FormTournament() {
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+  const fechaHoy = new Date();
 
   const [torneo, setTorneo] = useState({
     nombre: "",
@@ -81,6 +82,7 @@ function FormTournament() {
     };
     getCategorias();
   }, []);
+
   return (
     <>
       <form className="main" onSubmit={handleSubmit}>
@@ -115,8 +117,15 @@ function FormTournament() {
                 type="date"
                 name="fecha_inicio"
                 value={torneo.fecha_inicio}
-                min="2022-12-31"
-                max="2023-02-28"
+                min={
+                  fechaHoy.getFullYear() +
+                  `-` +
+                  (fechaHoy.getMonth() + 1) +
+                  `-` +
+                  (fechaHoy.getDate() >= 9
+                    ? `0` + fechaHoy.getDate()
+                    : fechaHoy.getDate())
+                }
               />
             </div>
             <div className="label-fecha">
@@ -126,8 +135,15 @@ function FormTournament() {
                 type="date"
                 name="fecha_final"
                 value={torneo.fecha_final}
-                min="2023-02-28"
-                max="2023-12-31"
+                min={
+                  fechaHoy.getFullYear() +
+                  `-` +
+                  (fechaHoy.getMonth() + 1) +
+                  `-` +
+                  (fechaHoy.getDate() >= 9
+                    ? `0` + fechaHoy.getDate()
+                    : fechaHoy.getDate())
+                }
               />
             </div>
           </div>
@@ -159,7 +175,9 @@ function FormTournament() {
               value={torneo.categoria_id}
             >
               {categorias.map((categoria) => (
-                <option value={categoria.id}>{categoria.nombre}</option>
+                <option key={categoria.id.toString()} value={categoria.id}>
+                  {categoria.nombre}
+                </option>
               ))}
             </Form.Select>
           </div>
