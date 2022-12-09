@@ -74,8 +74,6 @@ function TablaArbitro() {
             <th>Nombres</th>
             <th>Apellidos</th>
             <th>Experiencia (años)</th>
-            <th>Email</th>
-            <th>Telefono</th>
             <th>Acreditacion</th>
             <th>Opciones</th>
           </tr>
@@ -87,8 +85,6 @@ function TablaArbitro() {
               <td>{refeere.nombre}</td>
               <td>{refeere.apellido}</td>
               <td>{refeere.experiencia_anos}</td>
-              <td>{refeere.email}</td>
-              <td>{refeere.telefono}</td>
               <td>
                 <Button
                   variant={refeere.acreditar ? "secondary" : "primary"}

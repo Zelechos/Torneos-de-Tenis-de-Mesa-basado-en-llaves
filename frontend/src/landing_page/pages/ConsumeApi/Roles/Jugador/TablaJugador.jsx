@@ -77,18 +77,15 @@ function TablaJugador() {
   let nroJugadores = 0;
   return (
     <>
-      <h1 className="title-table">Tabla Jugadores</h1>
+      <h1 className="title-table">Tabla Jugadores por Ranking</h1>
       <Table striped bordered hover variant="dark" className="table">
         <thead>
           <tr>
             <th>Nro</th>
+            <th>Ranking</th>
             <th>Nombre</th>
             <th>Apellidos</th>
-            <th>Ranking</th>
-            <th>Altura(cm)</th>
-            <th>Peso(Kg)</th>
             <th>Nacionalidad</th>
-            <th>Mano Habil</th>
             <th>Sexo</th>
             <th>Acreditacion</th>
             <th>Opciones</th>
@@ -98,13 +95,10 @@ function TablaJugador() {
           {players.map((player) => (
             <tr key={player.id}>
               <td>{(nroJugadores = nroJugadores + 1)}</td>
+              <td>{player.ranking}</td>
               <td>{player.nombre}</td>
               <td>{player.apellidos}</td>
-              <td>{player.ranking}</td>
-              <td>{player.altura}</td>
-              <td>{player.peso}</td>
               <td>{player.nacionalidad}</td>
-              <td>{player.mano_habil}</td>
               <td>{player.sexo}</td>
               <td>
                 <Button
