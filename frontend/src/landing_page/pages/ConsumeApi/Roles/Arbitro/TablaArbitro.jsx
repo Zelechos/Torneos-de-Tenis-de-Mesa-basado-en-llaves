@@ -10,6 +10,8 @@ function TablaArbitro() {
   const [alert, setAlert] = useState(false);
   const [mensaje, setMensaje] = useState("");
 
+  let nroArbitros = 0;
+
   const handleAlertShow = (mensaje) => {
     setMensaje(mensaje);
     setAlert(true);
@@ -68,11 +70,10 @@ function TablaArbitro() {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
+            <th>Nro</th>
             <th>Nombres</th>
             <th>Apellidos</th>
             <th>Experiencia (años)</th>
-            <th>Email</th>
-            <th>Telefono</th>
             <th>Acreditacion</th>
             <th>Opciones</th>
           </tr>
@@ -80,24 +81,23 @@ function TablaArbitro() {
         <tbody>
           {refeeres.map((refeere) => (
             <tr key={refeere.id}>
+              <td>{(nroArbitros = nroArbitros + 1)}</td>
               <td>{refeere.nombre}</td>
               <td>{refeere.apellido}</td>
               <td>{refeere.experiencia_anos}</td>
-              <td>{refeere.email}</td>
-              <td>{refeere.telefono}</td>
               <td>
                 <Button
                   variant={refeere.acreditar ? "secondary" : "primary"}
                   onClick={() => {
                     handleAlertShow(
                       refeere.acreditar
-                        ? "El Arbitro ya esta Acreditado"
+                        ? `Arbitro ${refeere.nombre} Desacreditado`
                         : "Se Acredito el Arbitro"
                     );
                     acreditarReferee(refeere);
                   }}
                 >
-                  {refeere.acreditar ? "Acreditado" : "Acreditar"}
+                  {refeere.acreditar ? "Desacreditar" : "Acreditar"}
                 </Button>
               </td>
               <td>
