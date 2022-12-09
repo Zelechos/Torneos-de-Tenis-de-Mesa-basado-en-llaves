@@ -106,7 +106,7 @@ function TablaJugador() {
                   onClick={() => {
                     handleAlertShow(
                       player.acreditar
-                        ? "El Jugador ya esta Acreditado"
+                        ? `Jugador ${player.nombre} Desacreditado`
                         : "Se Acredito el Jugador"
                     );
                     acreditarJugador(player);

@@ -91,13 +91,13 @@ function TablaArbitro() {
                   onClick={() => {
                     handleAlertShow(
                       refeere.acreditar
-                        ? "El Arbitro ya esta Acreditado"
+                        ? `Arbitro ${refeere.nombre} Desacreditado`
                         : "Se Acredito el Arbitro"
                     );
                     acreditarReferee(refeere);
                   }}
                 >
-                  {refeere.acreditar ? "Acreditado" : "Acreditar"}
+                  {refeere.acreditar ? "Desacreditar" : "Acreditar"}
                 </Button>
               </td>
               <td>
