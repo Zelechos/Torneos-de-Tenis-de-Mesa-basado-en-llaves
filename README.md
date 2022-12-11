@@ -4,15 +4,16 @@ Sistema de Administración de Torneos de Tenis de Mesa basado en llaves.  El obj
 
 ## Tecnologias
 ---------------
-- Git
-- Github
-- Java
-- JWT
-- Spring Boot
-- React Js
-- MySQL
-- Jest
-- JUnit
+
+> - Git
+> - Github
+> - Java
+> - Spring Boot
+> - React Js
+> - MySQL
+> - Jest
+> - JUnit
+> - Google Cloud
 
  ## Metodología de Desarrollo
 - SCRUM
