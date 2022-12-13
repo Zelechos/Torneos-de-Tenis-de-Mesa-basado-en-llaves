@@ -190,6 +190,17 @@ function FormJugador() {
               </Form.Select>
             </div>
           </div>
+          <div className="input">
+            <label htmlFor="torneo">Torneo: </label>
+            <Form.Select
+              aria-label="Default select example"
+              className="select"
+              onChange={handleChange}
+              name="categoria_id"
+            >
+              <option>Torneo Navideño</option>
+            </Form.Select>
+          </div>
           <button className="btn-register" type="submit" onClick={handleShow}>
             Registrar Jugador
           </button>
