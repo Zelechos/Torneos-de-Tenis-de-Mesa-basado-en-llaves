@@ -200,21 +200,39 @@ function FormJugador() {
               </Form.Select>
             </div>
           </div>
-          <div className="input">
-            <label htmlFor="torneo">Torneo: </label>
-            <Form.Select
-              aria-label="Default select example"
-              className="select"
-              onChange={handleChange}
-              name="torneo_id"
-              value={player.torneo_id}
-            >
-              {torneos.map((torneo) => (
-                <option key={torneo.id.toString()} value={torneo.id}>
-                  {torneo.nombre}
-                </option>
-              ))}
-            </Form.Select>
+          <div className="input two-option">
+            <div className="input">
+              <label htmlFor="torneo">Torneo: </label>
+              <Form.Select
+                aria-label="Default select example"
+                className="select"
+                onChange={handleChange}
+                name="torneo_id"
+                value={player.torneo_id}
+              >
+                {torneos.map((torneo) => (
+                  <option key={torneo.id.toString()} value={torneo.id}>
+                    {torneo.nombre}
+                  </option>
+                ))}
+              </Form.Select>
+            </div>
+            <div className="input">
+              <label htmlFor="torneo">Categoria: </label>
+              <Form.Select
+                aria-label="Default select example"
+                className="select"
+                onChange={handleChange}
+                name="torneo_id"
+                value={player.torneo_id}
+              >
+                {torneos.map((torneo) => (
+                  <option key={torneo.id.toString()} value={torneo.id}>
+                    {torneo.nombre}
+                  </option>
+                ))}
+              </Form.Select>
+            </div>
           </div>
           <button className="btn-register" type="submit" onClick={handleShow}>
             Registrar Jugador
