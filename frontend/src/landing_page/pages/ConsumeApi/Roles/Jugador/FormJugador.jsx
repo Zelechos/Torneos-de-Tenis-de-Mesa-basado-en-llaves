@@ -1,11 +1,12 @@
 import Form from "react-bootstrap/Form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ModalAlert from "../../Modal";
 import JugadorImg from "./img-jugador.jpg";
 
 function FormJugador() {
   const [show, setShow] = useState(false);
   const [mensaje, setMensaje] = useState("Todos los campos deben ser llenados");
+  const [torneos, setTorneos] = useState([]);
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -73,6 +74,15 @@ function FormJugador() {
     }
   };
 
+  // GET TORNEOS
+  useEffect(() => {
+    const getCategorias = () => {
+      fetch("https://spring-370801.wn.r.appspot.com/api/categoria/mostrar")
+        .then((respuesta) => respuesta.json())
+        .then((respuesta) => setTorneos(respuesta));
+    };
+    getCategorias();
+  }, []);
   return (
     <>
       <form className="main" onSubmit={handleSubmit}>
@@ -196,9 +206,14 @@ function FormJugador() {
               aria-label="Default select example"
               className="select"
               onChange={handleChange}
-              name="categoria_id"
+              name="torneo_id"
+              value={player.torneo_id}
             >
-              <option>Torneo Navideño</option>
+              {torneos.map((torneo) => (
+                <option key={torneo.id.toString()} value={torneo.id}>
+                  {torneo.nombre}
+                </option>
+              ))}
             </Form.Select>
           </div>
           <button className="btn-register" type="submit" onClick={handleShow}>
