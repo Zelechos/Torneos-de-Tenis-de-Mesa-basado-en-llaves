@@ -1,5 +1,6 @@
 import JuezImg from "./juez.jpg";
 import { useState } from "react";
+import Form from "react-bootstrap/Form";
 import ModalAlert from "../../Modal";
 
 function FormArbitro() {
@@ -134,6 +135,17 @@ function FormArbitro() {
               min="59999999"
               max="79999999"
             />
+          </div>
+          <div className="input">
+            <label htmlFor="torneo">Torneo: </label>
+            <Form.Select
+              aria-label="Default select example"
+              className="select"
+              onChange={handleChange}
+              name="torneo_id"
+            >
+              <option>Torneo Navideño</option>
+            </Form.Select>
           </div>
           <button className="btn-register" type="submit" onClick={handleShow}>
             Registrar Arbitro
