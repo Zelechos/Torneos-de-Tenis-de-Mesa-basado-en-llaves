@@ -1,5 +1,5 @@
 import JuezImg from "./juez.jpg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import ModalAlert from "../../Modal";
 
@@ -9,6 +9,7 @@ function FormArbitro() {
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+  const [torneos, setTorneos] = useState([]);
 
   const [referee, setReferee] = useState({
     apellido: "",
@@ -65,6 +66,16 @@ function FormArbitro() {
       handleShow();
     }
   };
+
+  // GET TORNEOS
+  useEffect(() => {
+    const getCategorias = () => {
+      fetch("https://spring-370801.wn.r.appspot.com/api/torneo/mostrar")
+        .then((respuesta) => respuesta.json())
+        .then((respuesta) => setTorneos(respuesta));
+    };
+    getCategorias();
+  }, []);
 
   return (
     <>
@@ -143,8 +154,13 @@ function FormArbitro() {
               className="select"
               onChange={handleChange}
               name="torneo_id"
+              value={referee.torneo_id}
             >
-              <option>Torneo Navideño</option>
+              {torneos.map((torneo) => (
+                <option key={torneo.id.toString()} value={torneo.id}>
+                  {torneo.nombre}
+                </option>
+              ))}
             </Form.Select>
           </div>
           <button className="btn-register" type="submit" onClick={handleShow}>

@@ -76,7 +76,7 @@ function FormTournament() {
   // GET Categorias
   useEffect(() => {
     const getCategorias = () => {
-      fetch("https://spring-370801.wn.r.appspot.com/api/categoria/mostrar")
+      fetch("https://spring-370801.wn.r.appspot.com/api/torneo/mostrar")
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setCategorias(respuesta));
     };
