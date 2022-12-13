@@ -7,6 +7,7 @@ function FormJugador() {
   const [show, setShow] = useState(false);
   const [mensaje, setMensaje] = useState("Todos los campos deben ser llenados");
   const [torneos, setTorneos] = useState([]);
+  const [categorias, setCategorias] = useState([]);
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -80,6 +81,16 @@ function FormJugador() {
       fetch("https://spring-370801.wn.r.appspot.com/api/torneo/mostrar")
         .then((respuesta) => respuesta.json())
         .then((respuesta) => setTorneos(respuesta));
+    };
+    getCategorias();
+  }, []);
+
+  // GET Categorias
+  useEffect(() => {
+    const getCategorias = () => {
+      fetch("https://spring-370801.wn.r.appspot.com/api/categoria/mostrar")
+        .then((respuesta) => respuesta.json())
+        .then((respuesta) => setCategorias(respuesta));
     };
     getCategorias();
   }, []);
@@ -224,11 +235,11 @@ function FormJugador() {
                 className="select"
                 onChange={handleChange}
                 name="torneo_id"
-                value={player.torneo_id}
+                value={player.categoria_id}
               >
-                {torneos.map((torneo) => (
-                  <option key={torneo.id.toString()} value={torneo.id}>
-                    {torneo.nombre}
+                {categorias.map((categoria) => (
+                  <option key={categoria.id.toString()} value={categoria.id}>
+                    {categoria.nombre}
                   </option>
                 ))}
               </Form.Select>
