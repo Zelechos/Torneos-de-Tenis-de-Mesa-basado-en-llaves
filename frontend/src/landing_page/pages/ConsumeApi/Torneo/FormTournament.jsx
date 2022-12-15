@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 function FormTournament() {
   const [show, setShow] = useState(false);
   const [mensaje, setMensaje] = useState("Todos los campos deben ser llenados");
-  const [categorias, setCategorias] = useState([]);
+  const [modalidades, setModalidad] = useState([]);
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -73,12 +73,12 @@ function FormTournament() {
     }
   };
 
-  // GET Categorias
+  // GET Modalidad
   useEffect(() => {
     const getCategorias = () => {
       fetch("https://spring-370801.wn.r.appspot.com/api/torneo/mostrar")
         .then((respuesta) => respuesta.json())
-        .then((respuesta) => setCategorias(respuesta));
+        .then((respuesta) => setModalidad(respuesta));
     };
     getCategorias();
   }, []);
@@ -90,7 +90,7 @@ function FormTournament() {
           <img className="torneo-img" src={TorneoImg} alt="" />
         </div>
         <div className="data-torneo">
-          <h1 className="heading">Registrar Nuevo Torneo</h1>
+          <h1 className="heading">Registrar Nuevo Torneo Ahora</h1>
           <div className="input">
             <label htmlFor="nombre">Nombre de tú Torneo: </label>
             <input
@@ -122,9 +122,9 @@ function FormTournament() {
                   `-` +
                   (fechaHoy.getMonth() + 1) +
                   `-` +
-                  (fechaHoy.getDate() >= 9
-                    ? `0` + fechaHoy.getDate()
-                    : fechaHoy.getDate())
+                  (fechaHoy.getDate() > 9
+                    ? fechaHoy.getDate()
+                    : `0` + fechaHoy.getDate())
                 }
               />
             </div>
@@ -140,9 +140,9 @@ function FormTournament() {
                   `-` +
                   (fechaHoy.getMonth() + 1) +
                   `-` +
-                  (fechaHoy.getDate() >= 9
-                    ? `0` + fechaHoy.getDate()
-                    : fechaHoy.getDate())
+                  (fechaHoy.getDate() > 9
+                    ? fechaHoy.getDate()
+                    : `0` + fechaHoy.getDate())
                 }
               />
             </div>
@@ -166,17 +166,17 @@ function FormTournament() {
             />
           </div>
           <div className="input">
-            <label htmlFor="categoria">Categoria: </label>
+            <label htmlFor="categoria">Modalidad: </label>
             <Form.Select
               aria-label="Default select example"
               className="select"
               onChange={handleChange}
               name="categoria_id"
-              value={torneo.categoria_id}
+              value={torneo.modalidad_id}
             >
-              {categorias.map((categoria) => (
-                <option key={categoria.id.toString()} value={categoria.id}>
-                  {categoria.nombre}
+              {modalidades.map((modalidad) => (
+                <option key={modalidad.id.toString()} value={modalidad.id}>
+                  {modalidad.nombre}
                 </option>
               ))}
             </Form.Select>
