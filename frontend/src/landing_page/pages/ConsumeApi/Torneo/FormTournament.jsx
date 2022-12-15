@@ -90,7 +90,7 @@ function FormTournament() {
           <img className="torneo-img" src={TorneoImg} alt="" />
         </div>
         <div className="data-torneo">
-          <h1 className="heading">Registrar Nuevo Torneo</h1>
+          <h1 className="heading">Registrar Nuevo Torneo Ahora</h1>
           <div className="input">
             <label htmlFor="nombre">Nombre de tú Torneo: </label>
             <input
