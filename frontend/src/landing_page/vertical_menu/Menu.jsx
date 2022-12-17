@@ -20,6 +20,7 @@ import FormArbitro from "../pages/ConsumeApi/Roles/Arbitro/FormArbitro";
 import FormJugador from "../pages/ConsumeApi/Roles/Jugador/FormJugador";
 import TablaJugador from "../pages/ConsumeApi/Roles/Jugador/TablaJugador";
 import TablaArbitro from "../pages/ConsumeApi/Roles/Arbitro/TablaArbitro";
+import ShowJugador from "../pages/ConsumeApi/Roles/Jugador/ShowJugador";
 
 const Menu = () => {
   return (
@@ -96,6 +97,7 @@ const Menu = () => {
             <Route path="registrar-jugador" element={<FormJugador />} />
             <Route path="listar-jugador" element={<TablaJugador />} />
             <Route path="listar-arbitro" element={<TablaArbitro />} />
+            <Route path="jugador" element={<ShowJugador />} />
           </Route>
           <Route path="/reportes" element={<Reportes />} />
         </Routes>
