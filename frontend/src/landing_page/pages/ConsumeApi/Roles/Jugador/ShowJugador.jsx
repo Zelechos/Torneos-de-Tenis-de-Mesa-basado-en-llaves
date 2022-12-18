@@ -34,6 +34,7 @@ const ShowJugador = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  console.log("getPlayers EFECTO");
 
   useEffect(() => {
     getPlayers();
@@ -42,11 +43,10 @@ const ShowJugador = () => {
   });
 
   // GET
-  const getPlayers = async () => {
+  const getPlayers = () => {
     fetch("https://spring-370801.wn.r.appspot.com/api/jugador/mostrar")
       .then((respuesta) => respuesta.json())
       .then((respuesta) => setPlayers(respuesta));
-    console.log("entro");
   };
 
   // GET Torneos

@@ -94,10 +94,10 @@ const Menu = () => {
             **
             <Route index element={<FormArbitro />} />
             **
+            <Route path="jugador" element={<ShowJugador />} />
             <Route path="registrar-jugador" element={<FormJugador />} />
             <Route path="listar-jugador" element={<TablaJugador />} />
             <Route path="listar-arbitro" element={<TablaArbitro />} />
-            <Route path="jugador" element={<ShowJugador />} />
           </Route>
           <Route path="/reportes" element={<Reportes />} />
         </Routes>
