@@ -63,11 +63,71 @@ const ShowJugador = () => {
     );
     setTorneos(response.data);
   };
+
+  const open_modal = (
+    operacion,
+    id,
+    nombre,
+    apellidos,
+    fecha_nacimiento,
+    ranking,
+    altura,
+    peso,
+    nacionalidad,
+    mano_habil,
+    sexo,
+    categoria_id,
+    torneo_id
+  ) => {
+    setTitle("");
+    setNombre("");
+    setApellidos("");
+    setFecha_nacimiento("");
+    setRanking(0);
+    setAltura(0);
+    setPeso(0);
+    setNacionalidad("");
+    setMano_habil("");
+    setTorneo_id("");
+    setSexo("");
+    setCategoria_id(0);
+
+    if (operacion === 1) {
+      setTitle("Registrar Jugador");
+      setOperacion(1);
+    }
+    if (operacion === 2) {
+      setTitle("Editar Jugador");
+      setOperacion(2);
+      setNombre(nombre);
+      setApellidos(apellidos);
+      setFecha_nacimiento(fecha_nacimiento);
+      setRanking(ranking);
+      setAltura(altura);
+      setPeso(peso);
+      setNacionalidad(nacionalidad);
+      setMano_habil(mano_habil);
+      setSexo(sexo);
+      setCategoria_id(categoria_id);
+      setTorneo_id(torneo_id);
+    }
+    window.setTimeout(function () {
+      document.getElementById("nombre").focus();
+    }, 500);
+  };
+
   return (
     <div>
       <div className="container-fluid">
         <div className="container-add">
-          <Button variant="primary" className="btn-add" onClick={handleShow}>
+          <Button
+            variant="primary"
+            className="btn-add"
+            onClick={() => {
+              open_modal(1);
+              handleShow();
+            }}
+          >
             <IoAddCircle /> &nbsp; Agregar Jugadores
           </Button>
         </div>
@@ -108,7 +168,27 @@ const ShowJugador = () => {
                         <AiFillDelete />
                       </Button>
                       &nbsp;
-                      <Button variant="primary">
+                      <Button
+                        variant="primary"
+                        onClick={() => {
+                          handleShow();
+                          open_modal(
+                            2,
+                            setId(player.id),
+                            player.nombre,
+                            player.apellidos,
+                            player.fecha_nacimiento,
+                            player.ranking,
+                            player.altura,
+                            player.peso,
+                            player.nacionalidad,
+                            player.mano_habil,
+                            player.sexo,
+                            player.categoria_id,
+                            player.torneo_id
+                          );
+                        }}
+                      >
                         <AiFillEdit />
                       </Button>
                     </div>
@@ -146,6 +226,9 @@ const ShowJugador = () => {
           setTorneo_id={setTorneo_id}
           categoria_id={categoria_id}
           setCategoria_id={setCategoria_id}
+          id={id}
+          operacion={operacion}
+          getPlayers={getPlayers()}
         />
       </div>
     </div>
