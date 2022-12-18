@@ -19,11 +19,8 @@ const Rol = () => {
             <Link to="./registrar-jugador" className="link">
               Registrar Jugador
             </Link>
-            <Link to="./listar-jugador" className="link">
-              Listar Jugadores
-            </Link>
-            <Link to="./jugador" className="link">
-              Jugador
+            <Link to="./jugadores" className="link">
+              Jugadores
             </Link>
           </nav>
         </div>
