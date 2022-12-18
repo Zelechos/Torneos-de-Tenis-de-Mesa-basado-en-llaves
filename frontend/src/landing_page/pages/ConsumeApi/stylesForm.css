@@ -12,6 +12,16 @@
   }
 }
 
+.modal-content {
+  /* background-color: #062951; */
+  background-image: linear-gradient(#062951c7, #062951f3), url("./Roles/Jugador/img-jugador.jpg");
+  color: #fff;
+  border-radius: 0 80px 0;
+  justify-content: space-between;
+  box-shadow: 2px 2px 5px rgb(255, 255, 255);
+}
+
+
 .container-fluid {
   padding: 1em;
   background: rgba(255, 255, 255, 0.11);
@@ -22,9 +32,20 @@
   border: 1px solid rgba(255, 255, 255, 0.53);
 }
 
+.two-option,
+.container-add,
+.options-buttons,
+.modal-content,
+.btn-register {
+  display: flex;
+}
+
+.two-option {
+  justify-content: space-between;
+}
+
 .container-add,
 .options-buttons {
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -36,4 +57,50 @@
 
 .container-table {
   margin-top: 1em;
+}
+
+.input {
+  margin-bottom: 7px;
+}
+
+.input input,
+.select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  font-size: 15px;
+  border-radius: 4px;
+  background: #0000002b;
+  color: #fff;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 1px #fff;
+}
+
+.input input:hover,
+select:hover {
+  background: #2a5ca879;
+}
+
+.input input:focus,
+select:focus {
+  box-shadow: 0 2px 2px #fff, 0 5px 10px #00000036;
+  background: #0a406d;
+  color: #fff;
+}
+
+.input label {
+  opacity: .6;
+}
+
+.two-option div {
+  width: 45%;
+}
+
+.btn-register {
+  font-size: 18px;
+  width: 100%;
+  transition: all 0.2s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
 }
