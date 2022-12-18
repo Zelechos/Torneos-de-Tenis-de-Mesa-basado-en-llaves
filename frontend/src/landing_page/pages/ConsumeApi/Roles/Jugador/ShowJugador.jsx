@@ -34,6 +34,7 @@ const ShowJugador = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   useEffect(() => {
     getPlayers();
     getCategorias();
@@ -42,10 +43,10 @@ const ShowJugador = () => {
 
   // GET
   const getPlayers = async () => {
-    const response = await axios.get(
-      "https://spring-370801.wn.r.appspot.com/api/jugador/mostrar"
-    );
-    setPlayers(response.data);
+    fetch("https://spring-370801.wn.r.appspot.com/api/jugador/mostrar")
+      .then((respuesta) => respuesta.json())
+      .then((respuesta) => setPlayers(respuesta));
+    console.log("entro");
   };
 
   // GET Torneos
@@ -155,7 +156,6 @@ const ShowJugador = () => {
                   <td>{player.nacionalidad}</td>
                   <td>{player.sexo}</td>
                   <td>
-                    {" "}
                     <Button
                       variant={player.acreditar ? "secondary" : "primary"}
                     >

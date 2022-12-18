@@ -90,11 +90,14 @@ function RegisterJugador({
   const enviarSolicitud = async (metodo, parametros, url) => {
     await axios({ method: metodo, url, data: parametros })
       .then(function (response) {
+        alert("entro");
         if (metodo === "POST") show_alert("Jugador Registrado", "succes");
+        if (metodo === "PUT") show_alert("Datos Actualizados", "succes");
         document.getElementById("cancelar").click();
         getPlayers();
       })
       .catch(function (error) {
+        alert("entro");
         show_alert("Error en la solicitud", "error");
       });
   };
