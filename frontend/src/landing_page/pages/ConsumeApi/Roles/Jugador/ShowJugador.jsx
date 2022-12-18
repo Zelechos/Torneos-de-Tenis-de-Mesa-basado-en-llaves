@@ -198,39 +198,39 @@ const ShowJugador = () => {
             </tbody>
           </Table>
         </div>
-        <RegisterJugador
-          show={show}
-          handleClose={handleClose}
-          title={title}
-          nombre={nombre}
-          setNombre={setNombre}
-          apellidos={apellidos}
-          setApellidos={setApellidos}
-          nacionalidad={nacionalidad}
-          setNacionalidad={setNacionalidad}
-          fecha_nacimiento={fecha_nacimiento}
-          setFechaNacimiento={setFecha_nacimiento}
-          ranking={ranking}
-          setRanking={setRanking}
-          altura={altura}
-          setAltura={setAltura}
-          peso={peso}
-          setPeso={setPeso}
-          mano_habil={mano_habil}
-          setMano_habil={setMano_habil}
-          sexo={sexo}
-          setSexo={setSexo}
-          torneos={torneos}
-          categorias={categorias}
-          torneo_id={torneo_id}
-          setTorneo_id={setTorneo_id}
-          categoria_id={categoria_id}
-          setCategoria_id={setCategoria_id}
-          id={id}
-          operacion={operacion}
-          getPlayers={getPlayers()}
-        />
       </div>
+      <RegisterJugador
+        show={show}
+        handleClose={handleClose}
+        title={title}
+        nombre={nombre}
+        setNombre={setNombre}
+        apellidos={apellidos}
+        setApellidos={setApellidos}
+        nacionalidad={nacionalidad}
+        setNacionalidad={setNacionalidad}
+        fecha_nacimiento={fecha_nacimiento}
+        setFechaNacimiento={setFecha_nacimiento}
+        ranking={ranking}
+        setRanking={setRanking}
+        altura={altura}
+        setAltura={setAltura}
+        peso={peso}
+        setPeso={setPeso}
+        mano_habil={mano_habil}
+        setMano_habil={setMano_habil}
+        sexo={sexo}
+        setSexo={setSexo}
+        torneos={torneos}
+        categorias={categorias}
+        torneo_id={torneo_id}
+        setTorneo_id={setTorneo_id}
+        categoria_id={categoria_id}
+        setCategoria_id={setCategoria_id}
+        id={id}
+        operacion={operacion}
+        getPlayers={getPlayers()}
+      />
     </div>
   );
 };
