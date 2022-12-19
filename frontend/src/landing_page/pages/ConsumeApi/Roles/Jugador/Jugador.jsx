@@ -547,14 +547,16 @@ const ShowPlayers = () => {
               </Form.Select>
             </div>
           </div>
-          <Button
-            variant="primary"
-            className="btn-register"
-            onClick={() => validar()}
-          >
-            <IoSaveSharp />
-            &nbsp; Guardar
-          </Button>
+          <div className="container-btn">
+            <Button
+              variant="primary"
+              className="btn-register"
+              onClick={() => validar()}
+            >
+              <IoSaveSharp />
+              &nbsp; Guardar
+            </Button>
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button id="cancelar" variant="danger" onClick={handleClose}>
