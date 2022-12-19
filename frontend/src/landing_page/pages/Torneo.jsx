@@ -11,12 +11,6 @@ const Torneo = () => (
           style={{ display: "flex", justifyContent: "space-around" }}
         >
           <Link to="./" className="link">
-            Lista Torneos
-          </Link>
-          <Link to="./registrar-torneos" className="link">
-            Registrar Torneo
-          </Link>
-          <Link to="./torneos" className="link">
             Torneos
           </Link>
         </nav>

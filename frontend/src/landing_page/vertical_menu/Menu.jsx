@@ -12,8 +12,6 @@ import { RiGroupFill } from "react-icons/ri";
 import { GiTatteredBanner } from "react-icons/gi";
 import { HiDocumentReport } from "react-icons/hi";
 
-import ListTournament from "../pages/ConsumeApi/Torneo/ListTournament";
-import FormTournament from "../pages/ConsumeApi/Torneo/FormTournament";
 import ShowTorneo from "../pages/ConsumeApi/Torneo/ShowTorneo";
 import FormPartido from "../pages/ConsumeApi/FormPartido/FormPartido";
 import ListPartidos from "../pages/ConsumeApi/ListPartidos/ListPartidos";
@@ -77,10 +75,8 @@ const Menu = () => {
 
           <Route path="/torneo" element={<Torneo />}>
             **
-            <Route index element={<ListTournament />} />
+            <Route index element={<ShowTorneo />} />
             **
-            <Route path="registrar-torneos" element={<FormTournament />} />
-            <Route path="torneos" element={<ShowTorneo />} />
           </Route>
 
           <Route path="/partido" element={<Partido />}>
