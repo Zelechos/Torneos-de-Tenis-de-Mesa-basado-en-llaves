@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { show_alert } from "../funtions";
+import { show_alert } from "../../funtions";
 import { IoSaveSharp } from "react-icons/io5";
 import { IoAddCircle } from "react-icons/io5";
 import Table from "react-bootstrap/Table";

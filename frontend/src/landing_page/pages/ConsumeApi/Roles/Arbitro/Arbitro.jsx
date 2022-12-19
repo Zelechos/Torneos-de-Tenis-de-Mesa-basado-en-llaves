@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { show_alert } from "../funtions";
+import { show_alert } from "../../funtions";
 import { IoSaveSharp } from "react-icons/io5";
 import { IoAddCircle } from "react-icons/io5";
 import Table from "react-bootstrap/Table";
@@ -181,7 +181,7 @@ const ShowReferee = () => {
   const deleteArbitro = (id, nombre) => {
     const MySwal = withReactContent(Swal);
     MySwal.fire({
-      title: "¿Seguro desea elminar el Arbitro " + nombre + "?",
+      title: "¿Seguro desea eliminar el Arbitro " + nombre + "?",
       icon: "question",
       text: "No se podra marcha atras",
       showCancelButton: true,
