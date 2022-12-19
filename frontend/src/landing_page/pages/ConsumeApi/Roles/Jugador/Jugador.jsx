@@ -51,7 +51,6 @@ const ShowPlayers = () => {
     fetch("https://spring-370801.wn.r.appspot.com/api/jugador/mostrar")
       .then((respuesta) => respuesta.json())
       .then((respuesta) => setPlayers(respuesta));
-    console.log("entro");
   };
 
   // GET Categorias
@@ -211,7 +210,13 @@ const ShowPlayers = () => {
     } else {
       await axios({ method: metodo, url, data: parametros })
         .then(function (response) {
-          if (metodo === "POST") show_alert("Jugador Registrado", "success");
+          if (metodo === "POST") {
+            if (parametros.sexo === "F") {
+              show_alert("Jugadora Registrada", "success");
+            } else {
+              show_alert("Jugador Registrado", "success");
+            }
+          }
           if (metodo === "PUT")
             show_alert("Se actualizo el Jugador", "success");
           document.getElementById("cancelar").click();
