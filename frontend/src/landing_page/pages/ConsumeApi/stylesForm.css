@@ -14,11 +14,11 @@
 
 .modal-content {
   /* background-color: #062951; */
-  background-image: linear-gradient(#062951c7, #062951f3), url("./Roles/Jugador/img-jugador.jpg");
+  background-image: linear-gradient(#062951a1, #062951ec), url("./Roles/Jugador/table-tennis-815708.jpg");
   color: #fff;
   border-radius: 0 80px 0;
   justify-content: space-between;
-  box-shadow: 2px 2px 5px rgb(255, 255, 255);
+  background-size: cover;
 }
 
 
@@ -36,8 +36,9 @@
 .container-add,
 .options-buttons,
 .modal-content,
-.btn-register,
-.container-title {
+.btn-add,
+.container-title,
+.btn-register {
   display: flex;
 }
 
@@ -47,9 +48,15 @@
 
 .container-add,
 .options-buttons,
-.container-title {
+.container-title,
+.btn-register {
   justify-content: center;
   align-items: center;
+}
+
+.container-btn,
+.btn-register {
+  width: 100%;
 }
 
 .container-table,
@@ -95,29 +102,105 @@ select:focus {
 }
 
 .input label {
-  opacity: .6;
+  opacity: .7;
 }
 
 .two-option div {
   width: 45%;
 }
 
-.btn-register {
-  font-size: 18px;
-  width: 100%;
-  transition: all 0.2s cubic-bezier(0.79, 0.14, 0.15, 0.86);
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-}
 
 .container-title {
   width: 100%;
-  margin-top: 1em;
+  margin-top: 1.5em;
   background: rgb(13, 16, 61);
   background: linear-gradient(90deg, rgba(13, 16, 61, 1) 0%, rgba(9, 75, 121, 1) 35%, rgba(0, 212, 255, 0) 100%);
 }
 
 .container-title h1 {
   font-weight: 800;
+}
+
+
+/* Animacion Boton Registrar Nuevo*/
+
+.btn-add {
+  min-width: 300px;
+  min-height: 60px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #4FD1C5;
+  background: linear-gradient(90deg, rgba(129, 230, 217, 1) 0%, rgba(79, 209, 197, 1) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(79, 209, 197, .64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+}
+
+.btn-add::before {
+  content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #00FFCB;
+  box-shadow: 0 0 60px rgba(0, 255, 203, .64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+
+.btn-add:hover,
+.btn-add:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+.btn-add:hover::before,
+.btn-add:focus::before {
+  opacity: 1;
+}
+
+.btn-add::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 6px solid #00FFCB;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+.btn-add:hover::after,
+.btn-add:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
 }
