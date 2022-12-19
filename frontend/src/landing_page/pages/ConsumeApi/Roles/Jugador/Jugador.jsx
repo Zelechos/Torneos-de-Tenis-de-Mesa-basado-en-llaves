@@ -122,6 +122,7 @@ const ShowPlayers = () => {
     }, 500);
   };
 
+  // Validacionde de los datos
   const validar = () => {
     let parametros;
     let metodo;
@@ -189,6 +190,7 @@ const ShowPlayers = () => {
     }
   };
 
+  // Peticiones
   const enviarSolicitud = async (metodo, parametros, url) => {
     if (metodo === "DELETE") {
       await axios({ method: metodo, url, data: parametros })
@@ -197,7 +199,14 @@ const ShowPlayers = () => {
         })
         .catch(function (error) {
           show_alert("Error en la Solicitud", "error");
-          console.log(error);
+        });
+    } else if (metodo === "ACREDITAR") {
+      await axios({ method: "PUT", url, data: parametros })
+        .then(function (response) {
+          getPlayers();
+        })
+        .catch(function (error) {
+          show_alert("Error en la Solicitud", "error");
         });
     } else {
       await axios({ method: metodo, url, data: parametros })
@@ -214,6 +223,7 @@ const ShowPlayers = () => {
     }
   };
 
+  // Eliminar Jugador
   const deleteJugador = (id, nombre) => {
     const MySwal = withReactContent(Swal);
     MySwal.fire({
@@ -237,6 +247,49 @@ const ShowPlayers = () => {
     });
   };
 
+  // Acreditar Jugador
+  const acreditar = (player, nombre) => {
+    let title = "";
+    let text = "";
+    let mensaje = "";
+    let mensaje2 = "";
+    let btnMsj = "";
+    if (!player.acreditar) {
+      title = "¿Desea Acreditar a " + nombre + "?";
+      text = "El jugador podra participar en torneos";
+      mensaje = "Jugador " + nombre + " Acreditado";
+      mensaje2 = "El participante NO fue acreditado";
+      btnMsj = "Si, acreditar";
+    } else {
+      title = "¿Desacreditar al jugador " + nombre + "?";
+      text = "El jugador ya NO podra participar en torneos";
+      mensaje = "Jugador " + nombre + " Desacreditado";
+      mensaje2 = "El Jugador se mantiene acreditado";
+      btnMsj = "Si, desacreditar";
+    }
+
+    const MySwal = withReactContent(Swal);
+    MySwal.fire({
+      title: title,
+      icon: "question",
+      text: text,
+      showCancelButton: true,
+      confirmButtonText: btnMsj,
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        show_alert(mensaje, "success");
+        enviarSolicitud(
+          "ACREDITAR",
+          {},
+          "https://spring-370801.wn.r.appspot.com/api/jugador/acreditar/" +
+            player.id
+        );
+      } else {
+        show_alert(mensaje2, "info");
+      }
+    });
+  };
   return (
     <div>
       <div className="container-fluid">
@@ -282,6 +335,9 @@ const ShowPlayers = () => {
                       <td>
                         <Button
                           variant={player.acreditar ? "secondary" : "primary"}
+                          onClick={() => {
+                            acreditar(player, player.nombre);
+                          }}
                         >
                           {player.acreditar ? "Desacreditar" : "Acreditar"}
                         </Button>
@@ -336,7 +392,6 @@ const ShowPlayers = () => {
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <input type="hidden" id="id" />
           <div className="input">
             <label htmlFor="nombres">Nombres: </label>
             <input
