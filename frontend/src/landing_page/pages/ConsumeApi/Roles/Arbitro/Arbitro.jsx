@@ -11,28 +11,23 @@ import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
-const ShowPlayers = () => {
+const ShowReferee = () => {
   const [id, setId] = useState(0);
-  const [players, setPlayers] = useState([]);
+  const [referees, setReferees] = useState([]);
   const [nombre, setNombre] = useState("");
-  const [apellidos, setApellidos] = useState("");
+  const [apellido, setApellido] = useState("");
   const [fecha_nacimiento, setFecha_nacimiento] = useState("");
-  const [altura, setAltura] = useState(0);
-  const [peso, setPeso] = useState(0);
-  const [nacionalidad, setNacionalidad] = useState("");
-  const [mano_habil, setMano_habil] = useState("");
-  const [sexo, setSexo] = useState("");
-  const [ranking, setRanking] = useState(0);
-  const [categoria_id, setCategoria_id] = useState(0);
+  const [experiencia_anos, setExperiencia_anos] = useState(0);
+  const [email, setEmail] = useState("");
+  const [telefono, setTelefono] = useState(0);
   const [torneo_id, setTorneo_id] = useState(0);
   // tipo de funcion a realizar
   const [operation, setOperation] = useState(1);
   // titulo del modal
   const [title, setTitle] = useState("");
-  let nroJugadores = 0;
+  let nroArbitros = 0;
 
   const [torneos, setTorneos] = useState([]);
-  const [categorias, setCategorias] = useState([]);
 
   // MODAL
   const [show, setShow] = useState(false);
@@ -41,24 +36,15 @@ const ShowPlayers = () => {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    getPlayers();
-    getCategorias();
+    getReferees();
     getTorneos();
   }, []);
 
   // GET
-  const getPlayers = () => {
-    fetch("https://spring-370801.wn.r.appspot.com/api/jugador/mostrar")
+  const getReferees = () => {
+    fetch("https://spring-370801.wn.r.appspot.com/api/arbitro/mostrar")
       .then((respuesta) => respuesta.json())
-      .then((respuesta) => setPlayers(respuesta));
-  };
-
-  // GET Categorias
-  const getCategorias = async () => {
-    const respuesta = await axios.get(
-      "https://spring-370801.wn.r.appspot.com/api/categoria/mostrar"
-    );
-    setCategorias(respuesta.data);
+      .then((respuesta) => setReferees(respuesta));
   };
 
   // GET Torneos
@@ -74,46 +60,34 @@ const ShowPlayers = () => {
     operacion,
     id,
     nombre,
-    apellidos,
+    apellido,
     fecha_nacimiento,
-    ranking,
-    altura,
-    peso,
-    nacionalidad,
-    mano_habil,
-    sexo,
-    categoria_id,
+    experiencia_anos,
+    email,
+    telefono,
     torneo_id
   ) => {
     setNombre("");
-    setApellidos("");
+    setApellido("");
     setFecha_nacimiento("");
-    setRanking(0);
-    setAltura(0);
-    setPeso(0);
-    setNacionalidad("");
-    setMano_habil("");
-    setSexo("");
-    setCategoria_id(0);
+    setExperiencia_anos(0);
+    setEmail("");
+    setTelefono(0);
     setTorneo_id(0);
 
     if (operacion === 1) {
-      setTitle("Registrar Jugador");
+      setTitle("Registrar Arbitro");
       setOperation(1);
     }
     if (operacion === 2) {
-      setTitle("Editar Jugador");
+      setTitle("Editar Arbitro");
       setOperation(2);
       setNombre(nombre);
-      setApellidos(apellidos);
+      setApellido(apellido);
       setFecha_nacimiento(fecha_nacimiento);
-      setRanking(ranking);
-      setAltura(altura);
-      setPeso(peso);
-      setNacionalidad(nacionalidad);
-      setMano_habil(mano_habil);
-      setSexo(sexo);
-      setCategoria_id(categoria_id);
+      setExperiencia_anos(experiencia_anos);
+      setEmail(email);
+      setTelefono(telefono);
       setTorneo_id(torneo_id);
     }
     window.setTimeout(function () {
@@ -128,62 +102,41 @@ const ShowPlayers = () => {
     let url;
 
     if (nombre.trim() === "")
-      show_alert("Ingrese el nombre del Jugador", "warning");
-    else if (apellidos.trim() === "")
-      show_alert("Ingrese los apellidos del Jugador", "warning");
-    else if (nacionalidad.trim() === "")
-      show_alert("Ingrese la nacionalidad", "warning");
-    else if (mano_habil !== "Z" && mano_habil !== "D")
-      show_alert("Seleccione Mano Habil", "warning");
-    else if (sexo !== "M" && sexo !== "F")
-      show_alert("Seleccione un genero", "warning");
+      show_alert("Ingrese el nombre del Arbitro", "warning");
+    else if (apellido.trim() === "")
+      show_alert("Ingrese los apellidos del Arbitro", "warning");
+    else if (email.trim() === "") show_alert("Ingrese el email", "warning");
     else if (isNaN(Date.parse(fecha_nacimiento)))
       show_alert("Ingrese la Fecha de Nacimiento", "warning");
-    else if (ranking < 1 || ranking > 1000)
-      show_alert("Ingrese el Ranking", "warning");
-    else if (altura < 130 || altura > 220)
-      show_alert(
-        "La altura debe comprenderse minimo 130cm, maximo 220cm",
-        "warning"
-      );
-    else if (peso < 40 || peso > 120)
-      show_alert(
-        "El peso debe comprenderse minimo 40kg, maximo 120kg",
-        "warning"
-      );
+    else if (experiencia_anos < 1 || experiencia_anos > 50)
+      show_alert("Ingrese una Experiencia de años valida", "warning");
+    else if (telefono < 59999999 || telefono > 79999999)
+      show_alert("Ingrese un numero de telefonos valido", "warning");
     else {
       if (operation === 1) {
         parametros = {
           nombre: nombre.trim(),
-          apellidos: apellidos.trim(),
+          apellido: apellido.trim(),
           fecha_nacimiento: fecha_nacimiento.trim(),
-          ranking: ranking,
-          altura: altura,
-          peso: peso,
-          nacionalidad: nacionalidad.trim(),
-          mano_habil: mano_habil,
-          sexo: sexo,
+          experiencia_anos: experiencia_anos,
+          email: email,
+          telefono: telefono,
           torneo_id: torneo_id,
-          categoria_id: categoria_id,
         };
         metodo = "POST";
-        url = "https://spring-370801.wn.r.appspot.com/api/jugador/add";
+        url = "https://spring-370801.wn.r.appspot.com/api/arbitro/add";
       } else {
         parametros = {
           nombre: nombre.trim(),
-          apellidos: apellidos.trim(),
+          apellido: apellido.trim(),
           fecha_nacimiento: fecha_nacimiento.trim(),
-          ranking: ranking,
-          altura: altura,
-          peso: peso,
-          nacionalidad: nacionalidad.trim(),
-          mano_habil: mano_habil,
-          sexo: sexo,
+          experiencia_anos: experiencia_anos,
+          email: email,
+          telefono: telefono,
           torneo_id: torneo_id,
-          categoria_id: categoria_id,
         };
         metodo = "PUT";
-        url = "https://spring-370801.wn.r.appspot.com/api/jugador/" + id;
+        url = "https://spring-370801.wn.r.appspot.com/api/arbitro/" + id;
       }
       enviarSolicitud(metodo, parametros, url);
     }
@@ -194,7 +147,7 @@ const ShowPlayers = () => {
     if (metodo === "DELETE") {
       await axios({ method: metodo, url, data: parametros })
         .then(function (response) {
-          getPlayers();
+          getReferees();
         })
         .catch(function (error) {
           show_alert("Error en la Solicitud", "error");
@@ -202,7 +155,7 @@ const ShowPlayers = () => {
     } else if (metodo === "ACREDITAR") {
       await axios({ method: "PUT", url, data: parametros })
         .then(function (response) {
-          getPlayers();
+          getReferees();
         })
         .catch(function (error) {
           show_alert("Error en la Solicitud", "error");
@@ -211,16 +164,12 @@ const ShowPlayers = () => {
       await axios({ method: metodo, url, data: parametros })
         .then(function (response) {
           if (metodo === "POST") {
-            if (parametros.sexo === "F") {
-              show_alert("Jugadora Registrada", "success");
-            } else {
-              show_alert("Jugador Registrado", "success");
-            }
+            show_alert("Arbitro Registrado", "success");
           }
           if (metodo === "PUT")
-            show_alert("Se actualizo el Jugador", "success");
+            show_alert("Se actualizo el Arbitro", "success");
           document.getElementById("cancelar").click();
-          getPlayers();
+          getReferees();
         })
         .catch(function (error) {
           show_alert("Error en la Solicitud", "error");
@@ -229,10 +178,10 @@ const ShowPlayers = () => {
   };
 
   // Eliminar Jugador
-  const deleteJugador = (id, nombre) => {
+  const deleteArbitro = (id, nombre) => {
     const MySwal = withReactContent(Swal);
     MySwal.fire({
-      title: "¿Seguro desea elminar el Jugador " + nombre + "?",
+      title: "¿Seguro desea elminar el Arbitro " + nombre + "?",
       icon: "question",
       text: "No se podra marcha atras",
       showCancelButton: true,
@@ -240,14 +189,14 @@ const ShowPlayers = () => {
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        show_alert("Se elimino el Jugador", "success");
+        show_alert("Se elimino el Arbitro", "success");
         enviarSolicitud(
           "DELETE",
           {},
-          "https://spring-370801.wn.r.appspot.com/api/jugador/" + id
+          "https://spring-370801.wn.r.appspot.com/api/arbitro/" + id
         );
       } else {
-        show_alert("El Jugador NO fue eliminado", "info");
+        show_alert("El Arbitro NO fue eliminado", "info");
       }
     });
   };
@@ -261,15 +210,15 @@ const ShowPlayers = () => {
     let btnMsj = "";
     if (!player.acreditar) {
       title = "¿Desea Acreditar a " + nombre + "?";
-      text = "El jugador podra participar en torneos";
-      mensaje = "Jugador " + nombre + " Acreditado";
-      mensaje2 = "El participante NO fue acreditado";
+      text = "El arbitro podra controlar los partidos de torneos";
+      mensaje = "Arbitro " + nombre + " Acreditado";
+      mensaje2 = "El arbitro NO fue acreditado";
       btnMsj = "Si, acreditar";
     } else {
-      title = "¿Desacreditar al jugador " + nombre + "?";
-      text = "El jugador ya NO podra participar en torneos";
-      mensaje = "Jugador " + nombre + " Desacreditado";
-      mensaje2 = "El Jugador se mantiene acreditado";
+      title = "¿Desacreditar al arbitro " + nombre + "?";
+      text = "El arbitro ya NO podra controlar en los partidos";
+      mensaje = "Arbitro " + nombre + " Desacreditado";
+      mensaje2 = "El Arbitro se mantiene acreditado";
       btnMsj = "Si, desacreditar";
     }
 
@@ -287,7 +236,7 @@ const ShowPlayers = () => {
         enviarSolicitud(
           "ACREDITAR",
           {},
-          "https://spring-370801.wn.r.appspot.com/api/jugador/acreditar/" +
+          "https://spring-370801.wn.r.appspot.com/api/arbitro/acreditar/" +
             player.id
         );
       } else {
@@ -308,11 +257,11 @@ const ShowPlayers = () => {
                 handleShow();
               }}
             >
-              <IoAddCircle /> &nbsp; Agregar Jugadores
+              <IoAddCircle /> &nbsp; Agregar Arbitros
             </Button>
           </div>
           <div className="container-title">
-            <h1>Lista de Jugadores</h1>
+            <h1>Lista de Arbitros</h1>
           </div>
         </div>
         <div className="row mt-3">
@@ -322,34 +271,28 @@ const ShowPlayers = () => {
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>RANKING</th>
-                    <th>JUGADOR</th>
+                    <th>ARBITRO</th>
                     <th>APELLIDOS</th>
-                    <th>NACIONALIDAD</th>
-                    <th>SEXO</th>
+                    <th>EXPERIENCIA(años)</th>
                     <th>ACREDITACION</th>
                     <th>OPCIONES</th>
                   </tr>
                 </thead>
                 <tbody className="table-group-divider">
-                  {players.map((player) => (
-                    <tr key={player.id}>
-                      <td>{(nroJugadores = nroJugadores + 1)}</td>
-                      <td>
-                        {new Intl.NumberFormat("es-mx").format(player.ranking)}
-                      </td>
-                      <td>{player.nombre}</td>
-                      <td>{player.apellidos}</td>
-                      <td>{player.nacionalidad}</td>
-                      <td>{player.sexo}</td>
+                  {referees.map((referee) => (
+                    <tr key={referee.id}>
+                      <td>{(nroArbitros = nroArbitros + 1)}</td>
+                      <td>{referee.nombre}</td>
+                      <td>{referee.apellido}</td>
+                      <td>{referee.experiencia_anos}</td>
                       <td>
                         <Button
-                          variant={player.acreditar ? "secondary" : "primary"}
+                          variant={referee.acreditar ? "secondary" : "primary"}
                           onClick={() => {
-                            acreditar(player, player.nombre);
+                            acreditar(referee, referee.nombre);
                           }}
                         >
-                          {player.acreditar ? "Desacreditar" : "Acreditar"}
+                          {referee.acreditar ? "Desacreditar" : "Acreditar"}
                         </Button>
                       </td>
                       <td>
@@ -357,7 +300,7 @@ const ShowPlayers = () => {
                           <Button
                             variant="danger"
                             onClick={() => {
-                              deleteJugador(player.id, player.nombre);
+                              deleteArbitro(referee.id, referee.nombre);
                             }}
                           >
                             <AiFillDelete />
@@ -369,18 +312,14 @@ const ShowPlayers = () => {
                               handleShow();
                               openModal(
                                 2,
-                                setId(player.id),
-                                player.nombre,
-                                player.apellidos,
-                                player.fecha_nacimiento,
-                                player.ranking,
-                                player.altura,
-                                player.peso,
-                                player.nacionalidad,
-                                player.mano_habil,
-                                player.sexo,
-                                player.categoria_id,
-                                player.torneo_id
+                                setId(referee.id),
+                                referee.nombre,
+                                referee.apellido,
+                                referee.fecha_nacimiento,
+                                referee.experiencia_anos,
+                                referee.email,
+                                referee.telefono,
+                                referee.torneo_id
                               );
                             }}
                           >
@@ -418,18 +357,8 @@ const ShowPlayers = () => {
               type="text"
               id="apellidos"
               className="form-control"
-              value={apellidos}
-              onChange={(e) => setApellidos(e.target.value)}
-            />
-          </div>
-          <div className="input">
-            <label htmlFor="nacionalidad">Nacionalidad: </label>
-            <input
-              type="text"
-              id="nacionalidad"
-              className="form-control"
-              value={nacionalidad}
-              onChange={(e) => setNacionalidad(e.target.value)}
+              value={apellido}
+              onChange={(e) => setApellido(e.target.value)}
             />
           </div>
           <div className="input two-option">
@@ -446,13 +375,13 @@ const ShowPlayers = () => {
               />
             </div>
             <div className="input">
-              <label htmlFor="ranking">Ranking: </label>
+              <label htmlFor="experiencia">Experiencia (años): </label>
               <input
                 type="number"
                 id="ranking"
                 className="form-control"
-                value={ranking}
-                onChange={(e) => setRanking(e.target.value)}
+                value={experiencia_anos}
+                onChange={(e) => setExperiencia_anos(e.target.value)}
                 min="0"
                 max="1000"
               />
@@ -460,92 +389,45 @@ const ShowPlayers = () => {
           </div>
           <div className="input two-option">
             <div className="input">
-              <label htmlFor="altura">Altura: </label>
+              <label htmlFor="email">Email: </label>
               <input
-                type="number"
+                type="email"
                 id="altura"
                 className="form-control"
-                value={altura}
-                onChange={(e) => setAltura(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 min="130"
                 max="220"
               />
             </div>
             <div className="input">
-              <label htmlFor="peso">Peso: </label>
+              <label htmlFor="peso">Telefono: </label>
               <input
                 type="number"
                 id="peso"
                 className="form-control"
-                value={peso}
-                onChange={(e) => setPeso(e.target.value)}
-                min="40"
-                max="200"
+                value={telefono}
+                onChange={(e) => setTelefono(e.target.value)}
+                min="59999999"
+                max="79999999"
               />
             </div>
           </div>
-          <div className="input two-option">
-            <div className="container-select">
-              <label htmlFor="mano_habil">Mano Habil: </label>
-              <Form.Select
-                className="select"
-                onChange={(e) => setMano_habil(e.target.value)}
-                name="mano_habil"
-                value={mano_habil}
-              >
-                <option>Ver Opciones</option>
-                <option value="D">Diestro</option>
-                <option value="Z">Zurdo</option>
-              </Form.Select>
-            </div>
-
-            <div className="container-select">
-              <label htmlFor="genero">Genero: </label>
-              <Form.Select
-                className="select"
-                onChange={(e) => setSexo(e.target.value)}
-                name="sexo"
-                value={sexo}
-              >
-                <option>Ver Opciones</option>
-                <option value="M">Masculino</option>
-                <option value="F">Femenino</option>
-              </Form.Select>
-            </div>
-          </div>
-          <div className="input two-option">
-            <div className="input">
-              <label htmlFor="torneo">Torneo: </label>
-              <Form.Select
-                aria-label="Default select example"
-                className="select"
-                onChange={(e) => setTorneo_id(e.target.value)}
-                name="torneo_id"
-                value={torneo_id}
-              >
-                {torneos.map((torneo) => (
-                  <option key={torneo.id.toString()} value={torneo.id}>
-                    {torneo.nombre}
-                  </option>
-                ))}
-              </Form.Select>
-            </div>
-            <div className="input">
-              <label htmlFor="torneo">Categoria: </label>
-              <Form.Select
-                aria-label="Default select example"
-                className="select"
-                onChange={(e) => setCategoria_id(e.target.value)}
-                name="torneo_id"
-                value={categoria_id}
-              >
-                {categorias.map((categoria) => (
-                  <option key={categoria.id.toString()} value={categoria.id}>
-                    {categoria.nombre}
-                  </option>
-                ))}
-              </Form.Select>
-            </div>
+          <div className="input">
+            <label htmlFor="torneo">Torneo: </label>
+            <Form.Select
+              aria-label="Default select example"
+              className="select"
+              onChange={(e) => setTorneo_id(e.target.value)}
+              name="torneo_id"
+              value={torneo_id}
+            >
+              {torneos.map((torneo) => (
+                <option key={torneo.id.toString()} value={torneo.id}>
+                  {torneo.nombre}
+                </option>
+              ))}
+            </Form.Select>
           </div>
           <Button
             variant="primary"
@@ -566,4 +448,4 @@ const ShowPlayers = () => {
   );
 };
 
-export default ShowPlayers;
+export default ShowReferee;

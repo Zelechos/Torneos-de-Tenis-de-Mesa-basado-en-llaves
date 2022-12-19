@@ -11,10 +11,7 @@ const Rol = () => {
             style={{ display: "flex", justifyContent: "space-around" }}
           >
             <Link to="./" className="link">
-              Registrar Arbitro
-            </Link>
-            <Link to="./listar-arbitro" className="link">
-              Listar Arbitros
+              Arbitros
             </Link>
             <Link to="./jugadores" className="link">
               Jugadores
