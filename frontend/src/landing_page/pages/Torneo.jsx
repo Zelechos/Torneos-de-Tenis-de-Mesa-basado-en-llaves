@@ -16,6 +16,9 @@ const Torneo = () => (
           <Link to="./registrar-torneos" className="link">
             Registrar Torneo
           </Link>
+          <Link to="./torneos" className="link">
+            Torneos
+          </Link>
         </nav>
       </div>
     </div>

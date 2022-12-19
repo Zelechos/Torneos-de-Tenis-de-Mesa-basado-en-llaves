@@ -14,6 +14,7 @@ import { HiDocumentReport } from "react-icons/hi";
 
 import ListTournament from "../pages/ConsumeApi/Torneo/ListTournament";
 import FormTournament from "../pages/ConsumeApi/Torneo/FormTournament";
+import ShowTorneo from "../pages/ConsumeApi/Torneo/ShowTorneo";
 import FormPartido from "../pages/ConsumeApi/FormPartido/FormPartido";
 import ListPartidos from "../pages/ConsumeApi/ListPartidos/ListPartidos";
 import Arbitro from "../pages/ConsumeApi/Roles/Arbitro/Arbitro";
@@ -79,6 +80,7 @@ const Menu = () => {
             <Route index element={<ListTournament />} />
             **
             <Route path="registrar-torneos" element={<FormTournament />} />
+            <Route path="torneos" element={<ShowTorneo />} />
           </Route>
 
           <Route path="/partido" element={<Partido />}>
