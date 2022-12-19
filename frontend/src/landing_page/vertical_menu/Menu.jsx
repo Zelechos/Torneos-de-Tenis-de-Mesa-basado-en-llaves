@@ -16,8 +16,7 @@ import ListTournament from "../pages/ConsumeApi/Torneo/ListTournament";
 import FormTournament from "../pages/ConsumeApi/Torneo/FormTournament";
 import FormPartido from "../pages/ConsumeApi/FormPartido/FormPartido";
 import ListPartidos from "../pages/ConsumeApi/ListPartidos/ListPartidos";
-import FormArbitro from "../pages/ConsumeApi/Roles/Arbitro/FormArbitro";
-import TablaArbitro from "../pages/ConsumeApi/Roles/Arbitro/TablaArbitro";
+import Arbitro from "../pages/ConsumeApi/Roles/Arbitro/Arbitro";
 import Jugador from "../pages/ConsumeApi/Roles/Jugador/Jugador.jsx";
 
 const Menu = () => {
@@ -90,10 +89,9 @@ const Menu = () => {
           </Route>
           <Route path="/roles" element={<Rol />}>
             **
-            <Route index element={<FormArbitro />} />
+            <Route index element={<Arbitro />} />
             **
             <Route path="jugadores" element={<Jugador />} />
-            <Route path="listar-arbitro" element={<TablaArbitro />} />
           </Route>
           <Route path="/reportes" element={<Reportes />} />
         </Routes>

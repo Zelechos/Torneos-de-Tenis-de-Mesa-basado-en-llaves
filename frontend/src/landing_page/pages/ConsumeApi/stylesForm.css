@@ -36,7 +36,8 @@
 .container-add,
 .options-buttons,
 .modal-content,
-.btn-register {
+.btn-register,
+.container-title {
   display: flex;
 }
 
@@ -45,7 +46,8 @@
 }
 
 .container-add,
-.options-buttons {
+.options-buttons,
+.container-title {
   justify-content: center;
   align-items: center;
 }
@@ -53,6 +55,10 @@
 .container-table,
 .container-add {
   animation: animate 0.88s ease;
+}
+
+.container-add {
+  flex-direction: column;
 }
 
 .container-table {
@@ -103,4 +109,15 @@ select:focus {
   cursor: pointer;
   justify-content: center;
   align-items: center;
+}
+
+.container-title {
+  width: 100%;
+  margin-top: 1em;
+  background: rgb(13, 16, 61);
+  background: linear-gradient(90deg, rgba(13, 16, 61, 1) 0%, rgba(9, 75, 121, 1) 35%, rgba(0, 212, 255, 0) 100%);
+}
+
+.container-title h1 {
+  font-weight: 800;
 }
